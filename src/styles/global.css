@@ -155,7 +155,8 @@ button, [role="button"] {
   transition: all 200ms ease-out;
 }
 .btn:hover, a[class*="bg-primary"]:hover, button[type="submit"]:hover {
-  box-shadow: 0 4px 16px rgba(133,167,30,0.25), 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
 }
 
 /* Scroll-triggered fade-in animation */
@@ -235,17 +236,8 @@ header.scrolled {
 }
 .logo-hover:hover .logo-icon {
   background-color: var(--color-primary-dark);
-  box-shadow: 0 0 0 3px rgba(133,167,30,0.15);
 }
 
-/* ---- CTA phone button glow on hover ---- */
-.cta-phone-glow {
-  position: relative;
-  transition: all 0.25s ease-out;
-}
-.cta-phone-glow:hover {
-  box-shadow: 0 0 20px rgba(133,167,30,0.35), 0 4px 12px rgba(0,0,0,0.1);
-}
 
 /* ---- Mobile menu slide transition ---- */
 .mobile-menu {
