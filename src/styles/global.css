@@ -131,10 +131,6 @@ a, button, [role="button"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-in-section {
-    animation: none;
-  }
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
