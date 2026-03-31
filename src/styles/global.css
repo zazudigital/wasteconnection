@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #006F51;
+  --color-primary-light: #008a66;
+  --color-primary-dark: #005a42;
+  --color-secondary: #1E3A5F;
+  --color-secondary-light: #2a4f7a;
+  --color-accent: #4CAF50;
+  --color-accent-light: #66BB6A;
+  --color-surface: #FAFDF8;
+  --color-surface-dim: #F2F7F0;
+  --color-surface-bright: #FDFEFB;
+  --color-ink: #0A1F14;
+  --color-ink-muted: #3D5347;
+  --color-ink-subtle: #5E7A6B;
+  --color-border-default: #D8E5DA;
+  --color-border-subtle: #E8F0E9;
+  --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Type scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.text-display {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Max width for readability */
+.prose-width {
+  max-width: 65ch;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth transitions on interactive elements */
+a, button, [role="button"] {
+  transition: all 200ms ease-out;
+}
+
+/* Scroll-triggered fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

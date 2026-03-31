@@ -1,0 +1,80 @@
+---
+const testimonials = [
+  {
+    name: 'Sarah Mitchell',
+    role: 'Homeowner, Plano TX',
+    quote: 'We have been with Waste Connections for seven years and never once had a missed pickup. When our recycling bin cracked last winter, I called at 8 AM and they had a replacement delivered the same afternoon. That kind of responsiveness is why I recommend them to every neighbor on our street.',
+    rating: 5,
+  },
+  {
+    name: 'James Chen',
+    role: 'Operations Director, Pacific Coast Retail Group',
+    quote: 'Waste Connections conducted a full waste audit across our 14 retail locations and redesigned our collection schedule. We went from five pickups a week down to three with compactors, cut our annual waste costs by 35%, and increased our landfill diversion rate to 62%. They treat us like a partner, not just an account number.',
+    rating: 5,
+  },
+  {
+    name: 'Maria Gonzalez',
+    role: 'Property Manager, Greenfield Communities (220 units)',
+    quote: 'Managing waste for a 220-unit apartment complex used to be a constant headache. Since switching to Waste Connections, the WasteConnect app lets me track every pickup, submit service requests, and manage billing for all our properties in one dashboard. Resident complaints about overflowing dumpsters dropped to nearly zero.',
+    rating: 5,
+  },
+];
+
+function renderStars(count: number) {
+  return Array(count).fill('&#9733;').join('');
+}
+---
+
+<section class="py-16 lg:py-24 bg-surface-dim">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mb-12">
+      <span class="text-primary font-semibold text-sm uppercase tracking-wider">What Our Customers Say</span>
+      <h2 class="mt-3 text-h2 font-extrabold text-ink">
+        Trusted by 8 million customers, every single week
+      </h2>
+    </div>
+    <!-- Featured testimonial + two smaller -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <!-- Featured -->
+      <div class="lg:col-span-3 bg-primary rounded-2xl p-8 lg:p-10">
+        <div class="flex items-center gap-1 text-yellow-300 text-lg mb-5" aria-label="5 out of 5 stars">
+          <Fragment set:html={renderStars(testimonials[1].rating)} />
+        </div>
+        <blockquote class="text-white text-lg lg:text-xl leading-relaxed mb-8 prose-width">
+          &ldquo;{testimonials[1].quote}&rdquo;
+        </blockquote>
+        <div class="flex items-center gap-3 border-t border-white/20 pt-5">
+          <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-sm">{testimonials[1].name.split(' ').map(n => n[0]).join('')}</span>
+          </div>
+          <div>
+            <div class="font-semibold text-white text-sm">{testimonials[1].name}</div>
+            <div class="text-white/70 text-xs">{testimonials[1].role}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Two stacked -->
+      <div class="lg:col-span-2 flex flex-col gap-6">
+        {[testimonials[0], testimonials[2]].map((t) => (
+          <div class="bg-white rounded-2xl p-6 border border-border-subtle flex-1">
+            <div class="flex items-center gap-1 text-yellow-400 text-base mb-3" aria-label={`${t.rating} out of 5 stars`}>
+              <Fragment set:html={renderStars(t.rating)} />
+            </div>
+            <blockquote class="text-ink-muted text-sm leading-relaxed mb-4">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <div class="flex items-center gap-3 border-t border-border-subtle pt-4">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                <span class="text-primary font-bold text-xs">{t.name.split(' ').map(n => n[0]).join('')}</span>
+              </div>
+              <div>
+                <div class="font-semibold text-ink text-sm">{t.name}</div>
+                <div class="text-ink-subtle text-xs">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

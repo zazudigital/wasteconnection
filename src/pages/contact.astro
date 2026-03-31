@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Contact Us" description="Reach Waste Connections for a free quote, service questions, or to report an issue. Call 844-708-7274 (Mon-Fri 7 AM - 5 PM) or submit a request online for a response within one business day.">
+  <Hero
+    title="We Are Here When You Need Us"
+    subtitle="Starting new service, scheduling a roll-off delivery, reporting a missed pickup, or just have a question about what goes in the recycling bin? Our local customer service teams are ready to help &mdash; by phone, email, or through the form below."
+    compact
+  />
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Send Us a Message</h2>
+          <p class="text-gray-600 mb-8">Tell us what you need and a local service representative will follow up within one business day. For urgent issues like a missed pickup, calling is the fastest way to get help.</p>
+
+          <form class="space-y-6" action="#" method="POST">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none"
+                  placeholder="John"
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none"
+                  placeholder="Doe"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="serviceType" class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+              <select
+                id="serviceType"
+                name="serviceType"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none appearance-none bg-white"
+              >
+                <option value="">Select a service type</option>
+                <option value="residential">Residential Collection</option>
+                <option value="commercial">Commercial Waste</option>
+                <option value="recycling">Recycling</option>
+                <option value="rolloff">Roll-Off Dumpster</option>
+                <option value="bulk">Bulk Pickup</option>
+                <option value="portable">Portable Toilets</option>
+                <option value="special">Special Waste</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none resize-vertical"
+                placeholder="Tell us about your needs — e.g., starting new service, requesting a quote, reporting a concern, or scheduling a roll-off delivery..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+            >
+              Send Message
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 sticky top-24">
+            <h3 class="text-lg font-bold text-gray-900 mb-6">Other Ways to Reach Us</h3>
+
+            <div class="space-y-6">
+              <!-- Phone -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 mb-1">Phone</div>
+                  <a href="tel:8447087274" class="text-primary font-medium hover:text-primary-dark transition-colors">844-708-7274</a>
+                  <p class="text-gray-500 text-sm mt-1">Mon - Fri: 7:00 AM - 5:00 PM (local time)</p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 mb-1">Email</div>
+                  <a href="mailto:info@wasteconnections.com" class="text-primary font-medium hover:text-primary-dark transition-colors">info@wasteconnections.com</a>
+                  <p class="text-gray-500 text-sm mt-1">Responses within 1 business day</p>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 mb-1">Headquarters</div>
+                  <p class="text-gray-600 text-sm">3 Waterway Square Place<br/>Suite 110<br/>The Woodlands, TX 77380</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-200 my-8"></div>
+
+            <!-- WasteConnect App -->
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3">WasteConnect&trade; App</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                The fastest way to check your pickup schedule, report a missed collection, pay your bill, and get disposal guides for tricky items &mdash; all from your phone, 24/7.
+              </p>
+              <div class="flex flex-col gap-3">
+                <a
+                  href="#"
+                  class="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                  </svg>
+                  App Store
+                </a>
+                <a
+                  href="#"
+                  class="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.2l2.807 1.626a1 1 0 0 1 0 1.734l-2.807 1.626L15.206 12l2.492-2.493zM5.864 3.387L16.8 9.72l-2.302 2.302-8.634-8.635z"/>
+                  </svg>
+                  Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Placeholder -->
+  <section class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="bg-secondary/5 border-2 border-dashed border-secondary/20 rounded-2xl h-80 flex items-center justify-center">
+        <div class="text-center">
+          <svg class="w-16 h-16 text-secondary/30 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <p class="text-secondary/50 font-medium text-lg">Service Area Map</p>
+          <p class="text-secondary/40 text-sm mt-1">Operating in 43 US states and 6 Canadian provinces</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
