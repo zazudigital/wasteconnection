@@ -13,7 +13,7 @@
   --color-surface-bright: #FDFEFB;
   --color-ink: #0A1F14;
   --color-ink-muted: #3D5347;
-  --color-ink-subtle: #5E7A6B;
+  --color-ink-subtle: #4A6656;
   --color-border-default: #D8E5DA;
   --color-border-subtle: #E8F0E9;
   --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
@@ -34,7 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  border-top: 3px solid var(--color-primary);
+  border-top: 3px solid var(--color-primary-light);
 }
 
 /* Type scale */
