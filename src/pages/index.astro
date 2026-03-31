@@ -8,57 +8,47 @@ import CTA from '../components/CTA.astro';
 const services = [
   {
     number: '01',
-    title: 'Residential Collection',
-    description: 'Depend on Waste Connections for prompt, efficient trash services right at your home. Weekly curbside garbage and recycling for single-family homes, townhomes, and HOA communities with timely pickup you can count on. Use the WasteConnect app so you never miss your collection day.',
+    title: 'Afvalhout',
+    description: 'Collectieve verwerking van afvalhout op basis van partnerschap. Wij nemen het volledige administratieve traject uit handen en zorgen voor een betrouwbare, duurzame verwerking van uw afvalhoutstromen. Door de gebundelde volumes van ons collectief realiseren wij scherpe tarieven die individueel onhaalbaar zijn.',
   },
   {
     number: '02',
-    title: 'Commercial Waste',
-    description: 'A range of dumpster sizes and scheduling options designed to meet your specific waste collection needs. From restaurants to office parks, we tailor front-load, rear-load, and compactor service to your volume and hours &mdash; so you save money and never worry about overflowing bins.',
+    title: 'Banden',
+    description: 'Gezamenlijke inzameling en recycling van banden tegen gunstige voorwaarden. Door de vraag van 40+ bedrijven te bundelen, onderhandelen wij scherpe collectieve tarieven bij gecertificeerde verwerkers. U levert eenvoudig aan en wij regelen de rest &mdash; van logistiek tot verantwoorde verwerking.',
   },
   {
     number: '03',
-    title: 'Recycling Programs',
-    description: 'Waste Connections champions a greener tomorrow. Single-stream and source-separated recycling for homes and businesses &mdash; paper, cardboard, plastics, glass, and metals all processed at our own facilities, keeping valuable resources out of landfills and back in the supply chain.',
+    title: 'Bedrijfsafval',
+    description: 'Collectieve inkoop voor bedrijfsafvalverwerking met aantoonbare kosten- en duurzaamheidsvoordelen. Wij matchen vraag en aanbod tussen deelnemers, optimaliseren de logistiek en zorgen voor transparante verwerking. Zo bespaart u op kosten en draagt u bij aan een circulaire economie.',
   },
   {
     number: '04',
-    title: 'Roll-Off Dumpsters',
-    description: 'Tackling a renovation, cleanout, or construction project? We offer 10, 20, 30, and 40 cubic yard roll-off containers with same-day delivery in most markets and flexible rental periods. Just tell us what you need and we handle the rest.',
-  },
-  {
-    number: '05',
-    title: 'Bulk & Yard Waste',
-    description: 'Got a couch, old appliances, or a yard full of branches? Schedule a pickup through the WasteConnect app or give us a call &mdash; we handle the heavy lifting so you do not have to. Seasonal yard debris collection plus on-demand bulk pickup, right from the curb.',
-  },
-  {
-    number: '06',
-    title: 'Special & E-Waste',
-    description: 'Not sure how to get rid of electronics, contaminated soils, or industrial by-products? We have you covered. Fully permitted collection and disposal that is compliant with all EPA, state, and provincial regulations &mdash; one less thing for you to worry about.',
+    title: 'Papier',
+    description: 'Stabiele partnerschappen voor papierrecycling met financiele voordelen voor elke deelnemer. Door langetermijncontracten met betrouwbare verwerkers garanderen wij prijsstabiliteit en continuiteit. Uw oud papier wordt verantwoord verwerkt en krijgt een tweede leven.',
   },
 ];
 ---
 
 <Layout title="Home">
   <Hero
-    title="Say Goodbye to Waste Worries"
-    subtitle="Home and business waste management services and dumpster rentals from one of the leading full-service solid waste collection providers in North America. Say goodbye to waste and hello to savings with Waste Connections!"
-    ctaText="Get a Free Quote"
+    title="Het collectief dat u sterker maakt"
+    subtitle="WasteConnection is het afvalcollectief in Breda dat 40+ bedrijven ontzorgt op het gebied van afvalverwerking. Door collectieve inkoop, slimme uitruillogistiek en transparante processen realiseren wij schaalvoordelen die individueel onbereikbaar zijn."
+    ctaText="Neem Contact Op"
     ctaHref="/contact"
-    secondaryCtaText="See All Services"
-    secondaryCtaHref="/services"
+    secondaryCtaText="Bekijk Diensten"
+    secondaryCtaHref="/diensten"
   />
 
   <!-- Services Overview — Numbered vertical list -->
   <section class="py-16 lg:py-24 bg-surface-bright">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-16">
-        <span class="label">What We Do</span>
+        <span class="label">Onze Diensten</span>
         <h2 class="mt-3 text-h2 font-extrabold text-ink">
-          Your Neighborhood's Complete Waste Solution
+          Vier afvalstromen, een collectief
         </h2>
         <p class="mt-4 text-lg text-ink-muted">
-          From residential carts to commercial dumpsters and construction roll-offs &mdash; all managed by one trusted provider with local teams who know your community. Timely trash pickup and consistent service, every single week.
+          WasteConnection bundelt de krachten van 40+ bedrijven voor de collectieve verwerking van vier belangrijke afvalstromen. Door slim vraag en aanbod te matchen realiseren wij schaalvoordelen en ontzorgen wij uw bedrijf volledig.
         </p>
       </div>
 
@@ -87,10 +77,10 @@ const services = [
 
       <div class="mt-12">
         <a
-          href="/services"
+          href="/diensten"
           class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors"
         >
-          View All Services
+          Alle Diensten Bekijken
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -106,12 +96,12 @@ const services = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span class="label">Why Waste Connections</span>
+          <span class="label">Waarom WasteConnection</span>
           <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
-            Your Neighborhood's Waste Partner Since 1997
+            Uw afvalpartner in collectieve kracht sinds 2005
           </h2>
           <p class="text-ink-muted text-lg leading-relaxed mb-8">
-            Since 1997, Waste Connections has been helping communities say goodbye to waste worries. What started as a regional hauler is now one of North America's leading full-service solid waste collection providers &mdash; with 21,000+ friendly team members committed to keeping your neighborhood clean and your costs down.
+            Sinds 2005 helpt WasteConnection bedrijven in de regio Breda om samen sterker te staan in afvalverwerking. Wat begon als een lokaal initiatief is uitgegroeid tot een collectief van meer dan 40 bedrijven die gezamenlijk profiteren van schaalvoordelen, transparante processen en duurzame verwerking.
           </p>
           <ul class="space-y-5">
             <li class="flex items-start gap-3">
@@ -119,8 +109,8 @@ const services = [
                 <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-bold text-ink">Safety Is Our #1 Value</span>
-                <p class="text-ink-muted text-sm mt-1">Every driver, technician, and operator starts the day with safety as the top priority. Our industry-leading training and vehicle technology keep our team members and your neighborhood safe.</p>
+                <span class="font-bold text-ink">Collectieve Inkoopkracht</span>
+                <p class="text-ink-muted text-sm mt-1">Door de volumes van 40+ bedrijven te bundelen onderhandelen wij tarieven die u als individueel bedrijf nooit zou kunnen bereiken. Meer volume betekent meer onderhandelingskracht en lagere kosten per ton.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -128,8 +118,8 @@ const services = [
                 <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-bold text-ink">Champions of a Greener Tomorrow</span>
-                <p class="text-ink-muted text-sm mt-1">We are committed to building a greener and cleaner tomorrow. From recycling facilities and landfill gas-to-energy plants to our growing CNG fleet, we are turning waste into opportunity for your community.</p>
+                <span class="font-bold text-ink">Slim Uitruilen</span>
+                <p class="text-ink-muted text-sm mt-1">Ons uitruil-principe optimaliseert vraag en aanbod tussen deelnemers. Door logistieke stromen slim te combineren verlagen wij transportkosten en minimaliseren wij de ecologische voetafdruk.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -137,8 +127,8 @@ const services = [
                 <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-bold text-ink">Rooted in Your Community</span>
-                <p class="text-ink-muted text-sm mt-1">We hire locally, sponsor youth sports leagues, partner with schools on recycling education, and invest in the long-term health of every neighborhood we serve. When you call us, you talk to someone who knows your area.</p>
+                <span class="font-bold text-ink">Langetermijncontracten</span>
+                <p class="text-ink-muted text-sm mt-1">Met contracten van 1 tot 17 jaar bij grote energieproducenten zoals Essent en RWE bieden wij prijsstabiliteit en zekerheid. Geen verrassingen, wel continuiteit.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -146,8 +136,8 @@ const services = [
                 <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-bold text-ink">Never Miss Your Collection Day</span>
-                <p class="text-ink-muted text-sm mt-1">Timely trash pickup and consistent service you can set your watch to. GPS-tracked trucks and local dispatchers keep things running smoothly. If something comes up, we make it right the same day.</p>
+                <span class="font-bold text-ink">Volledige Transparantie</span>
+                <p class="text-ink-muted text-sm mt-1">Transparantie in afvalverwerking is onze fundamentele missie. U weet precies waar uw afval naartoe gaat, hoe het verwerkt wordt en welke kosten daarbij horen. Wij zijn een prima vraagbaak voor al uw afvalvragen.</p>
               </div>
             </li>
           </ul>
@@ -155,22 +145,22 @@ const services = [
         <!-- Key figures — stacked editorial, no cards -->
         <div class="relative space-y-8 lg:pt-4">
           <!-- Community image behind stats -->
-          <img src="/images/community.jpg" alt="Serving local communities" loading="lazy" width="800" height="600" class="rounded-sm w-full h-48 object-cover mb-8" />
+          <img src="/images/community.jpg" alt="Collectieve kracht van samenwerking" loading="lazy" width="800" height="600" class="rounded-sm w-full h-48 object-cover mb-8" />
           <div class="border-l-4 border-primary pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">27+</span>
-            <p class="label mt-1">Years Serving Neighborhoods</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">20+</span>
+            <p class="label mt-1">Jaar Ervaring</p>
           </div>
           <div class="border-l-4 border-accent pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">100+</span>
-            <p class="label mt-1">Communities We Call Home</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">40+</span>
+            <p class="label mt-1">Deelnemende Bedrijven</p>
           </div>
           <div class="border-l-4 border-primary pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">8M+</span>
-            <p class="label mt-1">Happy Customers Weekly</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">4</span>
+            <p class="label mt-1">Afvalstromen</p>
           </div>
           <div class="border-l-4 border-accent pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">21K+</span>
-            <p class="label mt-1">Friendly Team Members</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">NIWO</span>
+            <p class="label mt-1">Gecertificeerd Collectief</p>
           </div>
         </div>
       </div>
@@ -178,8 +168,6 @@ const services = [
   </section>
 
   <Testimonials />
-
-  <CTA variant="app" />
 
   <CTA variant="contact" />
 </Layout>

@@ -1,22 +1,19 @@
 ---
-const testimonials = [
+const approaches = [
   {
-    name: 'Sarah Mitchell',
-    role: 'Homeowner, Plano TX',
-    quote: 'We have been with Waste Connections for over six years and have never once missed a collection day. When our recycling bin cracked last winter, I called and they had a replacement out the same afternoon. That kind of friendly, responsive service is why I recommend them to every neighbor on our street.',
-    rating: 5,
+    name: 'Het Uitruil-principe',
+    role: 'Kern van ons collectief',
+    quote: 'Door slim vraag en aanbod te matchen tussen onze 40+ deelnemers, optimaliseren wij de logistiek en drukken we de kosten. Dit uitruil-principe zorgt ervoor dat elke deelnemer profiteert van schaalvoordelen die individueel onbereikbaar zouden zijn. Zo creeren wij samen meer waarde uit elke afvalstroom.',
   },
   {
-    name: 'James Chen',
-    role: 'Operations Director, Pacific Coast Retail Group',
-    quote: 'Our named account manager conducted a full waste audit across our 14 retail locations and redesigned our collection schedule. By adding compactors we reduced pickup frequency from five days to three, cut our annual costs by 35%, and boosted our diversion rate to 62%. Five years in, they still treat us like a partner, not just an account number.',
-    rating: 5,
+    name: 'Transparantie',
+    role: 'Onze belofte aan deelnemers',
+    quote: 'Wij geloven dat transparantie in afvalverwerking fundamenteel is. Elke deelnemer weet precies waar zijn afval naartoe gaat, hoe het verwerkt wordt en welke tarieven daarbij horen. Geen verborgen kosten, geen onduidelijkheid.',
   },
   {
-    name: 'Maria Gonzalez',
-    role: 'Property Manager, Greenfield Communities (220 units)',
-    quote: 'Managing waste for a 220-unit apartment complex used to be a constant headache. Since switching to Waste Connections, the WasteConnect app gives me service reminders, delay alerts, and disposal guidance all in one place. Resident complaints about overflowing dumpsters dropped to nearly zero &mdash; and we are saving money, too.',
-    rating: 5,
+    name: 'Langetermijncontracten',
+    role: 'Stabiliteit voor deelnemers',
+    quote: 'Met contracten van 1 tot 17 jaar bij grote energieproducenten zoals Essent en RWE bieden wij onze deelnemers prijsstabiliteit en zekerheid. Zo worden bedrijven ontzorgd en kunnen zij zich richten op hun eigen kernactiviteiten.',
   },
 ];
 ---
@@ -24,40 +21,40 @@ const testimonials = [
 <section class="py-16 lg:py-24 bg-surface-bright">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-14">
-      <span class="label">What Our Customers Say</span>
+      <span class="label">Onze Aanpak</span>
       <h2 class="mt-3 text-h2 font-extrabold text-ink">
-        Real neighbors, real savings, real results
+        Samen sterker door collectieve kracht
       </h2>
     </div>
 
-    <!-- Featured testimonial — dramatic, full-width -->
+    <!-- Featured approach — dramatic, full-width -->
     <div class="relative border-l-4 border-primary pl-8 lg:pl-12 mb-14">
       <!-- Massive quotation mark -->
       <div class="absolute -top-4 -left-1 text-primary/15 select-none pointer-events-none" aria-hidden="true" style="font-size: 10rem; font-family: Georgia, 'Times New Roman', serif; line-height: 1;">&ldquo;</div>
       <blockquote class="relative text-xl sm:text-2xl lg:text-3xl text-ink leading-snug font-medium max-w-4xl" style="font-family: Georgia, 'Times New Roman', serif;">
-        {testimonials[1].quote}
+        {approaches[0].quote}
       </blockquote>
       <div class="mt-8 flex items-center gap-4">
         <div class="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-          <span class="text-white font-bold text-sm" style="font-family: var(--font-heading);">{testimonials[1].name.split(' ').map(n => n[0]).join('')}</span>
+          <span class="text-white font-bold text-sm" style="font-family: var(--font-heading);">WC</span>
         </div>
         <div>
-          <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{testimonials[1].name}</div>
-          <div class="text-ink-subtle text-xs">{testimonials[1].role}</div>
+          <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{approaches[0].name}</div>
+          <div class="text-ink-subtle text-xs">{approaches[0].role}</div>
         </div>
       </div>
     </div>
 
     <!-- Two smaller quotes side by side -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {[testimonials[0], testimonials[2]].map((t) => (
+      {[approaches[1], approaches[2]].map((t) => (
         <div class="border border-border-default p-6 lg:p-8">
           <blockquote class="text-ink-muted text-sm leading-relaxed mb-5" style="font-family: Georgia, 'Times New Roman', serif;">
             &ldquo;{t.quote}&rdquo;
           </blockquote>
           <div class="flex items-center gap-3 border-t border-border-subtle pt-4">
             <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
-              <span class="text-primary font-bold text-xs" style="font-family: var(--font-heading);">{t.name.split(' ').map(n => n[0]).join('')}</span>
+              <span class="text-primary font-bold text-xs" style="font-family: var(--font-heading);">WC</span>
             </div>
             <div>
               <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{t.name}</div>

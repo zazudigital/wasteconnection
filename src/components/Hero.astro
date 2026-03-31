@@ -19,15 +19,15 @@ const {
   secondaryCtaText,
   secondaryCtaHref,
   compact = false,
-  statValue = '8M+',
-  statLabel = 'Happy customers weekly',
+  statValue = '40+',
+  statLabel = 'Deelnemende bedrijven',
 } = Astro.props;
 ---
 
 <section class:list={[
   'relative overflow-hidden',
   compact ? 'py-16 lg:py-20' : 'py-0',
-]} style={compact ? "background: linear-gradient(135deg, #006F51 0%, #005a42 40%, #1E3A5F 100%);" : ""}>
+]} style={compact ? "background: linear-gradient(135deg, #85a71e 0%, #6e8c14 40%, #2d3a1a 100%);" : ""}>
   {compact ? (
     <!-- Compact: simple left-aligned text, no split screen -->
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@ const {
     <!-- Full hero: asymmetric split-screen -->
     <div class="flex flex-col lg:flex-row min-h-[540px] lg:min-h-[600px]">
       <!-- Left: text content — 65% -->
-      <div class="lg:w-[65%] flex items-center" style="background: linear-gradient(135deg, #006F51 0%, #005a42 40%, #1E3A5F 100%);">
+      <div class="lg:w-[65%] flex items-center" style="background: linear-gradient(135deg, #85a71e 0%, #6e8c14 40%, #2d3a1a 100%);">
         <div class="max-w-3xl px-6 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-28">
           <h1 class="text-display font-extrabold text-white leading-tight">
             {title}

@@ -1,17 +1,16 @@
 ---
 const quickLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About Us' },
+  { href: '/diensten', label: 'Diensten' },
+  { href: '/over-ons', label: 'Over Ons' },
   { href: '/contact', label: 'Contact' },
 ];
 
 const serviceLinks = [
-  { href: '/services', label: 'Residential Collection' },
-  { href: '/services', label: 'Commercial Waste' },
-  { href: '/services', label: 'Recycling Programs' },
-  { href: '/services', label: 'Roll-Off Dumpsters' },
-  { href: '/services', label: 'Special Waste' },
+  { href: '/diensten', label: 'Afvalhout' },
+  { href: '/diensten', label: 'Banden' },
+  { href: '/diensten', label: 'Bedrijfsafval' },
+  { href: '/diensten', label: 'Papier' },
 ];
 
 const year = new Date().getFullYear();
@@ -20,7 +19,7 @@ const year = new Date().getFullYear();
 <!-- Dark green watermark band -->
 <div class="bg-primary-dark relative overflow-hidden py-8" aria-hidden="true">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-    <span class="text-white/[0.06] font-extrabold whitespace-nowrap select-none pointer-events-none" style="font-size: clamp(4rem, 10vw, 8rem); font-family: var(--font-heading); line-height: 1;">Waste Connections</span>
+    <span class="text-white/[0.06] font-extrabold whitespace-nowrap select-none pointer-events-none" style="font-size: clamp(4rem, 10vw, 8rem); font-family: var(--font-heading); line-height: 1;">WasteConnection</span>
   </div>
 </div>
 
@@ -33,25 +32,25 @@ const year = new Date().getFullYear();
           <div class="w-10 h-10 bg-primary flex items-center justify-center">
             <span class="text-white font-extrabold text-sm" style="font-family: var(--font-heading);">WC</span>
           </div>
-          <span class="text-xl font-bold" style="font-family: var(--font-heading);">Waste Connections</span>
+          <span class="text-xl font-bold" style="font-family: var(--font-heading);">WasteConnection</span>
         </a>
         <p class="text-gray-300 text-sm leading-relaxed mb-6">
-          One of the leading full-service solid waste collection providers in North America. Home and business waste management services and dumpster rentals &mdash; helping 8+ million customers say goodbye to waste and hello to savings since 1997.
+          Het collectief van WasteConnection maakt u sterker. Sinds 2005 ontzorgen wij 40+ bedrijven op het gebied van afvalverwerking door collectieve inkoop, transparante processen en het slim uitruilen van vraag en aanbod.
         </p>
         <a
-          href="tel:8447087274"
+          href="tel:+31411611470"
           class="inline-flex items-center gap-2 text-white font-semibold hover:text-accent-light transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
-          844-708-7274
+          +31(0)411-611470
         </a>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h3 class="label text-gray-300 mb-4">Quick Links</h3>
+        <h3 class="label text-gray-300 mb-4">Snelle Links</h3>
         <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li>
@@ -65,7 +64,7 @@ const year = new Date().getFullYear();
 
       <!-- Services -->
       <div>
-        <h3 class="label text-gray-300 mb-4">Our Services</h3>
+        <h3 class="label text-gray-300 mb-4">Onze Diensten</h3>
         <ul class="space-y-3">
           {serviceLinks.map((link) => (
             <li>
@@ -75,19 +74,23 @@ const year = new Date().getFullYear();
             </li>
           ))}
         </ul>
+        <div class="mt-6">
+          <h3 class="label text-gray-300 mb-2">Goed Doel</h3>
+          <p class="text-gray-400 text-sm">Wij steunen Stichting Prithipura</p>
+        </div>
       </div>
 
       <!-- Contact Info -->
       <div>
-        <h3 class="label text-gray-300 mb-4">Contact Us</h3>
+        <h3 class="label text-gray-300 mb-4">Contact</h3>
         <ul class="space-y-4 text-sm text-gray-400">
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
             <div>
-              <span class="block text-white font-medium">Phone</span>
-              <a href="tel:8447087274" class="hover:text-white transition-colors">844-708-7274</a>
+              <span class="block text-white font-medium">Telefoon</span>
+              <a href="tel:+31411611470" class="hover:text-white transition-colors">+31(0)411-611470</a>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -95,8 +98,8 @@ const year = new Date().getFullYear();
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
             <div>
-              <span class="block text-white font-medium">Email</span>
-              <a href="mailto:info@wasteconnections.com" class="hover:text-white transition-colors">info@wasteconnections.com</a>
+              <span class="block text-white font-medium">E-mail</span>
+              <a href="mailto:Info@WasteConnection.nl" class="hover:text-white transition-colors">Info@WasteConnection.nl</a>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -104,8 +107,8 @@ const year = new Date().getFullYear();
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
             <div>
-              <span class="block text-white font-medium">Headquarters</span>
-              <span>The Woodlands, Texas</span>
+              <span class="block text-white font-medium">Adres</span>
+              <span>Nieuwe Bredase Baan 30<br/>4825 BP Breda</span>
             </div>
           </li>
         </ul>
@@ -117,12 +120,11 @@ const year = new Date().getFullYear();
   <div class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-gray-400 text-sm">
-        &copy; {year} Waste Connections, Inc. All rights reserved.
+        &copy; {year} WasteConnection. Alle rechten voorbehouden.
       </p>
       <div class="flex items-center gap-6 text-sm text-gray-400">
-        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="#" class="hover:text-white transition-colors">Accessibility</a>
+        <a href="#" class="hover:text-white transition-colors">Privacybeleid</a>
+        <a href="#" class="hover:text-white transition-colors">Algemene Voorwaarden</a>
       </div>
     </div>
   </div>

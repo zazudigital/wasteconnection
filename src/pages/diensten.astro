@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTA from '../components/CTA.astro';
+
+const afvalhoutDetails = [
+  {
+    title: 'Collectieve Houtverwerking',
+    description: 'Samen met onze deelnemers bundelen wij afvalhoutstromen en sluiten wij gunstige verwerkingscontracten af. Door de volumes te combineren realiseren wij tarieven die voor individuele bedrijven onbereikbaar zijn. Wij hanteren langetermijncontracten met betrouwbare verwerkers voor maximale prijsstabiliteit.',
+  },
+  {
+    title: 'Administratieve Ontzorging',
+    description: 'Het volledige administratieve traject rondom afvalhout nemen wij uit handen. Van weegbonnen en transportdocumenten tot facturatie en rapportage &mdash; u levert aan en wij regelen de rest. Minimale administratieve last, maximaal resultaat.',
+  },
+  {
+    title: 'Duurzame Verwerking',
+    description: 'Uw afvalhout wordt verantwoord verwerkt via gecertificeerde partners. Een groot deel wordt omgezet in biomassa-energie, waarmee wij bijdragen aan de energietransitie. Volledige transparantie over de verwerkingsketen is onze standaard.',
+  },
+];
+
+const bandenDetails = [
+  {
+    title: 'Collectieve Bandenrecycling',
+    description: 'Door de bandenafvoer van tientallen bedrijven te bundelen onderhandelen wij scherpe tarieven bij gecertificeerde recyclingbedrijven. U profiteert van gunstige prijzen zonder zelf te hoeven onderhandelen of contracten te beheren.',
+  },
+  {
+    title: 'Eenvoudige Logistiek',
+    description: 'Wij coordineren de inzameling en het transport van gebruikte banden voor alle deelnemers. Door slim te plannen en routes te combineren houden wij de logistieke kosten laag en minimaliseren wij de impact op het milieu.',
+  },
+  {
+    title: 'Verantwoorde Verwerking',
+    description: 'Alle banden worden verwerkt volgens de hoogste milieunormen. Van rubbergranulaat voor sportvelden tot energieterugwinning &mdash; wij zorgen ervoor dat elke band een nuttige bestemming krijgt met volledige traceerbaarheid.',
+  },
+];
+
+const bedrijfsafvalDetails = [
+  {
+    title: 'Collectieve Inkoop',
+    description: 'WasteConnection bundelt de afvalverwerkingsvraag van 40+ bedrijven. Door deze collectieve inkoopkracht onderhandelen wij voorwaarden die aanzienlijk gunstiger zijn dan wat individuele bedrijven kunnen bereiken. Het uitruil-principe maximaliseert de waarde voor elke deelnemer.',
+  },
+  {
+    title: 'Kosten- en Duurzaamheidsvoordelen',
+    description: 'Lagere verwerkingskosten en een kleinere ecologische voetafdruk gaan hand in hand. Door logistieke stromen te optimaliseren en afvalstromen slim te combineren reduceren wij zowel de kosten als de milieubelasting aanzienlijk.',
+  },
+  {
+    title: 'Transparante Verwerking',
+    description: 'Elke deelnemer heeft volledig inzicht in waar het bedrijfsafval naartoe gaat en hoe het verwerkt wordt. Transparantie is geen bijzaak maar onze fundamentele missie. Wij rapporteren helder over volumes, tarieven en verwerkingsmethoden.',
+  },
+];
+
+const papierDetails = [
+  {
+    title: 'Stabiele Partnerschappen',
+    description: 'Wij onderhouden langetermijnrelaties met betrouwbare papierverwerkers in Nederland. Deze stabiele partnerschappen garanderen continuiteit in afname, ook wanneer de marktprijzen voor oud papier fluctueren.',
+  },
+  {
+    title: 'Financiele Voordelen',
+    description: 'Door de papierstroom van het hele collectief te bundelen realiseren wij betere prijzen per ton. Bij gunstige marktomstandigheden delen alle deelnemers mee in de opbrengsten. Eerlijk, transparant en collectief.',
+  },
+  {
+    title: 'Verantwoorde Recycling',
+    description: 'Al het ingezamelde papier wordt verantwoord gerecycled bij gecertificeerde verwerkers. Oud papier krijgt een tweede leven als nieuw papier of karton, volledig in lijn met de circulaire economie waar wij in geloven.',
+  },
+];
+---
+
+<Layout title="Diensten" description="WasteConnection biedt collectieve verwerking van afvalhout, banden, bedrijfsafval en papier. Ontdek de schaalvoordelen van ons collectief van 40+ bedrijven in Breda.">
+  <Hero
+    title="Collectieve afvalverwerking voor uw bedrijf"
+    subtitle="WasteConnection bundelt vier afvalstromen voor 40+ bedrijven. Door collectieve inkoop en slim uitruilen realiseren wij schaalvoordelen die individueel onbereikbaar zijn."
+    compact
+  />
+
+  <!-- Afvalhout -->
+  <section class="py-20 lg:py-28 bg-surface-bright">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <span class="label">Dienst 01</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          Afvalhout
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted max-w-3xl">
+          Partnerschap-gebaseerde verwerking van afvalhout met minimale administratieve belasting. Wij bundelen de houtstromen van het collectief en sluiten gunstige langetermijncontracten af met gecertificeerde verwerkers.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border-default">
+        {afvalhoutDetails.map((service, i) => (
+          <div class:list={[
+            'p-8 lg:p-10',
+            i < afvalhoutDetails.length - 1 ? 'lg:border-r border-border-default' : '',
+            i < afvalhoutDetails.length - 1 ? 'border-b lg:border-b-0 border-border-default' : '',
+          ]}>
+            <span class="text-2xl font-extrabold text-primary/15 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
+            <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual break -->
+  <div class="relative w-full h-64 lg:h-80 overflow-hidden">
+    <img src="/images/recycling.jpg" alt="" aria-hidden="true" loading="lazy" width="1400" height="800" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-primary/75"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <p class="text-white text-2xl lg:text-3xl font-extrabold tracking-tight text-center px-4" style="font-family: var(--font-heading);">Samen sterker door collectieve kracht</p>
+    </div>
+  </div>
+
+  <!-- Banden -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <span class="label">Dienst 02</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          Banden
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted max-w-3xl">
+          Collectieve bandenrecycling met gunstige prijzen door het bundelen van volumes. Eenvoudige logistiek en verantwoorde verwerking voor alle deelnemers van het collectief.
+        </p>
+      </div>
+      <!-- Numbered vertical list for banden -->
+      <div class="space-y-0">
+        {bandenDetails.map((service, i) => (
+          <div class:list={[
+            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            i === bandenDetails.length - 1 ? 'border-b border-border-default' : '',
+          ]}>
+            <div class="lg:col-span-1">
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
+            </div>
+            <div class="lg:col-span-3 flex items-start">
+              <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
+            </div>
+            <div class="lg:col-span-8">
+              <p class="text-ink-muted leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bedrijfsafval -->
+  <section class="py-20 lg:py-28 bg-surface-bright">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <span class="label">Dienst 03</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          Bedrijfsafval
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted max-w-3xl">
+          Gezamenlijke inkoop voor bedrijfsafvalverwerking met aantoonbare kosten- en duurzaamheidsvoordelen. Het uitruil-principe van WasteConnection maximaliseert de waarde voor elke deelnemer.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border-default">
+        {bedrijfsafvalDetails.map((service, i) => (
+          <div class:list={[
+            'p-8 lg:p-10',
+            i < bedrijfsafvalDetails.length - 1 ? 'lg:border-r border-border-default' : '',
+            i < bedrijfsafvalDetails.length - 1 ? 'border-b lg:border-b-0 border-border-default' : '',
+          ]}>
+            <span class="text-2xl font-extrabold text-primary/15 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
+            <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
+            <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Papier -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <span class="label">Dienst 04</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          Papier
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted max-w-3xl">
+          Stabiele papierrecycling-partnerschappen met financiele voordelen voor alle deelnemers. Langetermijncontracten zorgen voor prijsstabiliteit en continuiteit, ongeacht marktfluctuaties.
+        </p>
+      </div>
+      <div class="space-y-0">
+        {papierDetails.map((service, i) => (
+          <div class:list={[
+            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            i === papierDetails.length - 1 ? 'border-b border-border-default' : '',
+          ]}>
+            <div class="lg:col-span-1">
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
+            </div>
+            <div class="lg:col-span-3 flex items-start">
+              <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
+            </div>
+            <div class="lg:col-span-8">
+              <p class="text-ink-muted leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA variant="contact" />
+</Layout>
