@@ -29,7 +29,6 @@ body {
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--color-ink);
   background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +39,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.15;
-  color: var(--color-ink);
   font-weight: 700;
 }
 
