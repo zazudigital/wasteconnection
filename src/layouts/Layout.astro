@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { title, description = 'WasteConnection is het afvalcollectief in Breda dat bedrijven sterker maakt. Collectieve inkoop van afvalhout, banden, bedrijfsafval en papier voor 40+ deelnemende bedrijven sinds 2005.' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://wasteconnection.nl');
 ---
 
 <!doctype html>
@@ -17,6 +18,13 @@ const { title, description = 'WasteConnection is het afvalcollectief in Breda da
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:title" content={`${title} | WasteConnection`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="WasteConnection" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

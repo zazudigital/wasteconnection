@@ -102,6 +102,11 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-numeric: tabular-nums;
 }
 
+/* Scroll offset for anchor links (accounts for sticky header) */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
 /* Focus states */
 :focus-visible {
   outline: 2px solid var(--color-primary);
