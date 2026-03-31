@@ -17,18 +17,23 @@ const serviceLinks = [
 const year = new Date().getFullYear();
 ---
 
+<!-- Dark green watermark band -->
+<div class="bg-primary-dark relative overflow-hidden py-8" aria-hidden="true">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <span class="text-white/[0.06] font-extrabold whitespace-nowrap select-none pointer-events-none" style="font-size: clamp(4rem, 10vw, 8rem); font-family: var(--font-heading); line-height: 1;">Waste Connections</span>
+  </div>
+</div>
+
 <footer class="bg-secondary text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       <!-- Brand Column -->
       <div class="lg:col-span-1">
         <a href="/" class="flex items-center gap-2 mb-4">
-          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
+          <div class="w-10 h-10 bg-primary flex items-center justify-center">
+            <span class="text-white font-extrabold text-sm" style="font-family: var(--font-heading);">WC</span>
           </div>
-          <span class="text-xl font-bold">Waste Connections</span>
+          <span class="text-xl font-bold" style="font-family: var(--font-heading);">Waste Connections</span>
         </a>
         <p class="text-gray-300 text-sm leading-relaxed mb-6">
           One of North America's largest solid waste services companies, providing collection, transfer, disposal, and recycling to 8+ million customers across 43 states and 6 Canadian provinces since 1997.
@@ -46,7 +51,7 @@ const year = new Date().getFullYear();
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Quick Links</h3>
+        <h3 class="label text-gray-300 mb-4">Quick Links</h3>
         <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li>
@@ -60,7 +65,7 @@ const year = new Date().getFullYear();
 
       <!-- Services -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Our Services</h3>
+        <h3 class="label text-gray-300 mb-4">Our Services</h3>
         <ul class="space-y-3">
           {serviceLinks.map((link) => (
             <li>
@@ -74,7 +79,7 @@ const year = new Date().getFullYear();
 
       <!-- Contact Info -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Contact Us</h3>
+        <h3 class="label text-gray-300 mb-4">Contact Us</h3>
         <ul class="space-y-4 text-sm text-gray-400">
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

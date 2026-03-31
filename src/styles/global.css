@@ -33,6 +33,8 @@ body {
   background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  border-top: 3px solid var(--color-primary);
 }
 
 /* Type scale */
@@ -80,16 +82,31 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
+/* Label utility — uppercase tracking for section labels */
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
 /* Max width for readability */
 .prose-width {
   max-width: 65ch;
+}
+
+/* Tabular numbers for stats */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Focus states */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 /* Smooth transitions on interactive elements */

@@ -1,41 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import Stats from '../components/Stats.astro';
 import Testimonials from '../components/Testimonials.astro';
 import CTA from '../components/CTA.astro';
 
 const services = [
   {
+    number: '01',
     title: 'Residential Collection',
     description: 'Scheduled weekly curbside garbage and recycling for single-family homes, townhomes, and HOA communities. We provide durable carts, stick to a consistent pickup window, and offer the WasteConnect app so you always know when your truck is coming.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>',
   },
   {
+    number: '02',
     title: 'Commercial Waste',
     description: 'Right-sized collection programs for restaurants, retailers, offices, and industrial facilities. Front-load, rear-load, and compactor service with flexible schedules from one to seven days a week, tailored to your waste volume and operational hours.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>',
   },
   {
+    number: '03',
     title: 'Recycling Programs',
     description: 'Single-stream and source-separated recycling for homes and businesses. We process paper, cardboard, plastics #1-7, glass, and metals at our own MRFs, diverting millions of tons from landfills annually.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
   },
   {
+    number: '04',
     title: 'Roll-Off Dumpsters',
     description: 'Open-top roll-off containers in 10, 20, 30, and 40 cubic yard sizes for construction sites, renovations, estate cleanouts, and roofing projects. Same-day delivery available in most markets with flexible rental periods.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>',
   },
   {
+    number: '05',
     title: 'Bulk & Yard Waste',
     description: 'Curbside yard debris collection during growing season plus on-demand bulk pickup for furniture, appliances, and mattresses. Schedule online or through the WasteConnect app and we handle the heavy lifting.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M6.05 8.05c-2.73 2.73-2.73 7.17 0 9.9C7.42 19.32 9.21 20 11 20s3.58-.68 4.95-2.05C18.68 15.22 20 8 20 8S12.78 5.32 6.05 8.05zm5.03 10.73c-.5-.38-.96-.85-1.35-1.35a9.8 9.8 0 0 1-1.35-2.58c-.3-.8-.48-1.58-.53-2.31l6.48-4.4A27.5 27.5 0 0 1 11.08 18.78z"/></svg>',
   },
   {
+    number: '06',
     title: 'Special & E-Waste',
     description: 'Permitted collection and disposal of non-hazardous special waste, contaminated soils, industrial by-products, and electronic equipment. Fully compliant with EPA, state, and provincial regulations so you never have to worry about liability.',
-    icon: '<svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>',
   },
 ];
 ---
@@ -50,11 +49,11 @@ const services = [
     secondaryCtaHref="/services"
   />
 
-  <!-- Services Overview -->
-  <section class="py-16 lg:py-24">
+  <!-- Services Overview — Numbered vertical list -->
+  <section class="py-16 lg:py-24 bg-surface-bright">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mb-14">
-        <span class="text-primary font-semibold text-sm uppercase tracking-wider">What We Do</span>
+      <div class="max-w-2xl mb-16">
+        <span class="label">What We Do</span>
         <h2 class="mt-3 text-h2 font-extrabold text-ink">
           Full-Spectrum Waste & Recycling Services
         </h2>
@@ -62,16 +61,31 @@ const services = [
           Residential carts, commercial dumpsters, construction roll-offs, recycling, organics, and special waste &mdash; all managed under one provider with local teams who know your community.
         </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
+
+      <!-- Numbered service list -->
+      <div class="space-y-0">
+        {services.map((service, i) => (
+          <div class:list={[
+            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            i === services.length - 1 ? 'border-b border-border-default' : '',
+          ]}>
+            {/* Number — always left on desktop */}
+            <div class="lg:col-span-1">
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{service.number}</span>
+            </div>
+            {/* Title */}
+            <div class="lg:col-span-3 flex items-start">
+              <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
+            </div>
+            {/* Description */}
+            <div class="lg:col-span-8">
+              <p class="text-ink-muted leading-relaxed">{service.description}</p>
+            </div>
+          </div>
         ))}
       </div>
-      <div class="text-center mt-12">
+
+      <div class="mt-12">
         <a
           href="/services"
           class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors"
@@ -92,48 +106,48 @@ const services = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span class="text-primary font-semibold text-sm uppercase tracking-wider">Why Waste Connections</span>
-          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+          <span class="label">Why Waste Connections</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
             Built on 27 Years of Showing Up, Rain or Shine
           </h2>
-          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+          <p class="text-ink-muted text-lg leading-relaxed mb-8">
             Since 1997, Waste Connections has grown from a regional hauler into one of North America's largest integrated waste services companies. Our 21,000+ team members operate a fleet of collection vehicles, transfer stations, recycling facilities, and engineered landfills &mdash; all held to the highest safety and environmental standards in the industry.
           </p>
-          <ul class="space-y-4">
+          <ul class="space-y-5">
             <li class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-0.5 shrink-0">
-                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <div class="w-5 h-5 border-2 border-primary flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-semibold text-gray-900">Safety-First Culture</span>
-                <p class="text-gray-600 text-sm mt-1">Every driver, technician, and operator starts the day with a safety briefing. Our industry-leading training programs and vehicle technology keep employees and neighborhoods safe.</p>
+                <span class="font-bold text-ink">Safety-First Culture</span>
+                <p class="text-ink-muted text-sm mt-1">Every driver, technician, and operator starts the day with a safety briefing. Our industry-leading training programs and vehicle technology keep employees and neighborhoods safe.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-0.5 shrink-0">
-                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <div class="w-5 h-5 border-2 border-primary flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-semibold text-gray-900">Measurable Sustainability</span>
-                <p class="text-gray-600 text-sm mt-1">We operate recycling facilities, landfill gas-to-energy plants, and a growing CNG fleet &mdash; actively diverting millions of tons from landfills and converting methane into renewable electricity.</p>
+                <span class="font-bold text-ink">Measurable Sustainability</span>
+                <p class="text-ink-muted text-sm mt-1">We operate recycling facilities, landfill gas-to-energy plants, and a growing CNG fleet &mdash; actively diverting millions of tons from landfills and converting methane into renewable electricity.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-0.5 shrink-0">
-                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <div class="w-5 h-5 border-2 border-primary flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-semibold text-gray-900">Deep Community Roots</span>
-                <p class="text-gray-600 text-sm mt-1">We hire locally, sponsor youth sports leagues, partner with schools on recycling education, and invest in the long-term health of every market we serve.</p>
+                <span class="font-bold text-ink">Deep Community Roots</span>
+                <p class="text-ink-muted text-sm mt-1">We hire locally, sponsor youth sports leagues, partner with schools on recycling education, and invest in the long-term health of every market we serve.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-0.5 shrink-0">
-                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <div class="w-5 h-5 border-2 border-primary flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               </div>
               <div>
-                <span class="font-semibold text-gray-900">On-Time, Every Time</span>
-                <p class="text-gray-600 text-sm mt-1">GPS-tracked trucks, optimized routes, and local dispatchers mean consistent pickup windows. If something goes wrong, our customer service team resolves it the same day.</p>
+                <span class="font-bold text-ink">On-Time, Every Time</span>
+                <p class="text-ink-muted text-sm mt-1">GPS-tracked trucks, optimized routes, and local dispatchers mean consistent pickup windows. If something goes wrong, our customer service team resolves it the same day.</p>
               </div>
             </li>
           </ul>
@@ -141,20 +155,20 @@ const services = [
         <!-- Key figures — stacked editorial, no cards -->
         <div class="space-y-8 lg:pt-4">
           <div class="border-l-4 border-primary pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading);">27+</span>
-            <p class="text-ink-muted text-sm font-medium uppercase tracking-wider mt-1">Years Protecting Communities</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">27+</span>
+            <p class="label mt-1">Years Protecting Communities</p>
           </div>
           <div class="border-l-4 border-accent pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading);">100+</span>
-            <p class="text-ink-muted text-sm font-medium uppercase tracking-wider mt-1">Operating Markets</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">100+</span>
+            <p class="label mt-1">Operating Markets</p>
           </div>
           <div class="border-l-4 border-primary pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading);">8M+</span>
-            <p class="text-ink-muted text-sm font-medium uppercase tracking-wider mt-1">Customers Served Weekly</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">8M+</span>
+            <p class="label mt-1">Customers Served Weekly</p>
           </div>
           <div class="border-l-4 border-accent pl-6">
-            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading);">21K+</span>
-            <p class="text-ink-muted text-sm font-medium uppercase tracking-wider mt-1">Dedicated Employees</p>
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">21K+</span>
+            <p class="label mt-1">Dedicated Employees</p>
           </div>
         </div>
       </div>
