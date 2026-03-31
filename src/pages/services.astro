@@ -6,73 +6,73 @@ import CTA from '../components/CTA.astro';
 const residentialServices = [
   {
     title: 'Curbside Garbage Collection',
-    description: 'Weekly automated pickup on a set schedule you can count on. We supply durable 64- or 96-gallon carts, and our GPS-tracked trucks follow optimized routes so your waste is collected during the same window every week.',
+    description: 'Depend on Waste Connections for prompt, efficient trash services right at your home. We supply durable carts and our trucks follow optimized routes so you get timely pickup during the same window every week. Never miss your collection day.',
   },
   {
     title: 'Single-Stream Recycling',
-    description: 'Toss all accepted recyclables &mdash; paper, cardboard, plastics #1-7, glass, aluminum, and tin &mdash; into one cart. Our materials recovery facilities sort and process everything, keeping valuable resources out of landfills and back in the supply chain.',
+    description: 'Waste Connections champions a greener tomorrow! Toss all accepted recyclables &mdash; paper, cardboard, plastics, glass, aluminum, and tin &mdash; into one cart. We sort and process everything, keeping valuable resources out of landfills and helping build a cleaner community.',
   },
   {
     title: 'Bulk Item Pickup',
-    description: 'Couches, mattresses, water heaters, old appliances &mdash; items too large for your regular cart. Schedule a bulk pickup through the WasteConnect app or by phone, and our crew will collect them right from the curb on a date that works for you.',
+    description: 'Couches, mattresses, water heaters, old appliances &mdash; items too large for your regular cart? No problem! Schedule a bulk pickup through the WasteConnect app or by phone, and our crew will collect them right from the curb on a date that works for you.',
   },
   {
     title: 'Yard Waste & Organics',
-    description: 'Seasonal curbside collection of leaves, branches, grass clippings, and garden debris. Available weekly from spring through fall in most markets, with composting at our organics processing facilities to return nutrients to the soil.',
+    description: 'Leaves, branches, grass clippings, garden debris &mdash; we take it all off your hands. Available weekly from spring through fall in most markets, with composting at our organics facilities to return nutrients to the soil and help build a greener and cleaner tomorrow.',
   },
   {
     title: 'Residential Roll-Off Dumpsters',
-    description: 'Tackling a kitchen renovation, roof replacement, or whole-house cleanout? Rent a 10- or 20-yard roll-off container delivered to your driveway. Flexible rental periods with prompt pickup when you are finished.',
+    description: 'Tackling a kitchen renovation, roof replacement, or whole-house cleanout? Rent a 10- or 20-yard roll-off container delivered right to your driveway. Flexible rental periods, fair pricing, and prompt pickup when you are finished &mdash; easy as that.',
   },
   {
     title: 'E-Waste & Electronics Recycling',
-    description: 'Safe, certified disposal of computers, monitors, TVs, printers, and mobile devices. We partner with R2-certified processors to recover precious metals and prevent hazardous materials like lead and mercury from entering the waste stream.',
+    description: 'Not sure what to do with old computers, monitors, TVs, or phones? We make it simple. Safe, certified disposal through R2-certified processors that recover precious metals and keep hazardous materials out of the waste stream.',
   },
 ];
 
 const commercialServices = [
   {
     title: 'Scheduled Waste Collection',
-    description: 'Front-load, rear-load, and automated collection from 2- to 8-yard containers on a one-to-seven-day schedule built around your operations. Ideal for restaurants, office parks, retail centers, and multi-tenant properties that need consistent, hassle-free service.',
+    description: 'A range of dumpster sizes and scheduling service options designed to meet your specific waste collection needs. Front-load, rear-load, and automated collection on a schedule built around your hours &mdash; ideal for restaurants, office parks, retail centers, and multi-tenant properties.',
   },
   {
     title: 'Construction & Demolition Roll-Offs',
-    description: 'Open-top containers in 10, 20, 30, and 40 cubic yard sizes for job sites, warehouse cleanouts, and large-scale commercial projects. Same-day delivery and swap-out available in most markets to keep your project on schedule.',
+    description: 'Open-top containers in 10, 20, 30, and 40 cubic yard sizes for job sites, warehouse cleanouts, and large-scale commercial projects. Same-day delivery and swap-out in most markets &mdash; so your project stays on schedule and on budget.',
   },
   {
     title: 'Compactors & Waste Reduction',
-    description: 'Self-contained and stationary compactors that crush waste volume by up to 80%, dramatically reducing haul frequency and annual disposal costs. We handle installation, maintenance, and monitoring so your team can focus on core business.',
+    description: 'By compacting your waste, you can effectively reduce pickup frequency and significantly save on expenses. Our self-contained and stationary compactors crush waste volume by up to 80%. We handle installation, maintenance, and monitoring so your team can focus on what matters most.',
   },
   {
     title: 'Commercial Recycling Programs',
-    description: 'We start with a comprehensive waste audit of your facility, then design a custom recycling program &mdash; from source-separated cardboard and plastics to single-stream options &mdash; that maximizes your diversion rate and can qualify your business for sustainability certifications.',
+    description: 'We champion a greener tomorrow for your business, too. We start with a waste audit of your facility, then design a custom recycling program &mdash; from source-separated cardboard and plastics to single-stream options &mdash; that saves you money and helps the planet.',
   },
   {
     title: 'Organic & Food Waste Diversion',
-    description: 'Purpose-built collection for restaurants, grocery chains, food processors, and institutional kitchens. Pre- and post-consumer food waste is transported to composting or anaerobic digestion facilities, turning organic waste into soil amendments and renewable energy.',
+    description: 'Purpose-built collection for restaurants, grocery chains, food processors, and institutional kitchens. We turn your food waste into soil amendments and renewable energy &mdash; reducing your disposal costs while helping build a greener and cleaner tomorrow.',
   },
 ];
 
 const specializedServices = [
   {
     title: 'Portable Restroom Services',
-    description: 'ADA-compliant standard and deluxe portable restrooms, hand-wash stations, and high-capacity restroom trailers for construction sites, festivals, sporting events, and emergency response. All units are serviced on a regular schedule to maintain hygiene and appearance.',
+    description: 'ADA-compliant standard and deluxe portable restrooms, hand-wash stations, and restroom trailers for construction sites, festivals, sporting events, and more. All units are serviced on a regular schedule so you can focus on your event or project, not logistics.',
   },
   {
     title: 'Special & Regulated Waste',
-    description: 'Permitted collection, transportation, and disposal of non-hazardous special waste &mdash; including contaminated soils, industrial sludge, asbestos-containing materials, and petroleum-impacted debris. Full manifesting, chain-of-custody documentation, and regulatory compliance so your project stays on the right side of EPA and state agencies.',
+    description: 'Not sure how to handle contaminated soils, industrial sludge, or other regulated materials? We take the complexity off your plate. Fully permitted collection, transportation, and disposal with complete documentation and regulatory compliance &mdash; one less thing for you to worry about.',
   },
   {
     title: 'Landfills & Transfer Stations',
-    description: 'We own and operate engineered Subtitle D landfills and regional transfer stations equipped with leachate management, continuous groundwater monitoring, and landfill gas collection systems that convert methane into renewable energy &mdash; turning long-term waste management into a net environmental benefit.',
+    description: 'We own and operate engineered landfills and regional transfer stations with leachate management, groundwater monitoring, and gas collection systems that convert methane into renewable energy. Because a greener and cleaner tomorrow starts with how we manage waste today.',
   },
 ];
 ---
 
-<Layout title="Services" description="Residential garbage and recycling, commercial waste collection, roll-off dumpsters, compactors, organics diversion, special waste, and portable restrooms from Waste Connections. Serving 8M+ customers across the US and Canada.">
+<Layout title="Services" description="Home and business waste management services and dumpster rentals from Waste Connections. Residential garbage, recycling, commercial waste, compactors, and more — say goodbye to waste and hello to savings!">
   <Hero
-    title="Every Service You Need, From One Trusted Provider"
-    subtitle="Residential curbside pickup, commercial dumpsters, construction roll-offs, recycling, organics processing, special waste disposal, and portable sanitation &mdash; all backed by 21,000+ employees and 27 years of operational excellence."
+    title="Home and Business Waste Management Made Easy"
+    subtitle="From curbside pickup to commercial dumpsters and construction roll-offs &mdash; everything you need from one friendly, reliable provider. Say goodbye to waste and hello to savings!"
     compact
   />
 
@@ -85,7 +85,7 @@ const specializedServices = [
           Residential Services
         </h2>
         <p class="mt-4 text-lg text-ink-muted max-w-3xl">
-          Dependable weekly collection, easy single-stream recycling, and on-demand bulk and yard waste pickup &mdash; all designed to keep your household running smoothly and your neighborhood looking its best. We serve over 6 million homes across 43 states and 6 Canadian provinces.
+          Depend on Waste Connections for prompt and efficient trash services right at your home. Timely trash pickup, easy single-stream recycling, and on-demand bulk and yard waste collection &mdash; all designed to keep your household running smoothly and your neighborhood looking its best.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border border-border-default">
@@ -115,7 +115,7 @@ const specializedServices = [
           Commercial & Industrial Services
         </h2>
         <p class="mt-4 text-lg text-ink-muted max-w-3xl">
-          Whether you operate a single storefront or manage dozens of facilities, we build a waste management plan around your volume, your hours, and your budget. Our account managers conduct on-site assessments to right-size your containers and optimize pickup frequency &mdash; so you only pay for what you actually need.
+          Whether you run a single storefront or manage dozens of facilities, we build a waste management plan around your volume, your hours, and your budget. Your dedicated account manager will work with you to find the right-sized solution &mdash; so you save money and only pay for what you actually need.
         </p>
       </div>
       <!-- Numbered vertical list for commercial services -->
@@ -149,7 +149,7 @@ const specializedServices = [
           Specialized & Infrastructure Services
         </h2>
         <p class="mt-4 text-lg text-ink-muted max-w-3xl">
-          Waste management does not end at the curb. We own and operate the transfer stations, landfills, and processing facilities that responsibly handle materials after pickup &mdash; and provide portable sanitation and special waste services for projects and events of every scale.
+          Waste management does not end at the curb. We own and operate the transfer stations, landfills, and processing facilities that responsibly handle materials after pickup &mdash; and provide portable sanitation and special waste services for projects and events of every size.
         </p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border-default">
