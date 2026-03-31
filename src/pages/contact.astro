@@ -11,13 +11,17 @@ import CTA from '../components/CTA.astro';
     compact
   />
 
-  <section class="py-20 lg:py-28 bg-surface-bright">
+  <section class="py-20 lg:py-28 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
         <!-- Contact Form -->
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-2 form-card bg-white border border-border-subtle rounded-sm p-8 lg:p-10">
           <h2 class="text-2xl font-bold text-ink mb-2" style="font-family: var(--font-heading);">Stuur ons een bericht</h2>
-          <p class="text-ink-muted mb-8">Vertel ons wat u nodig heeft en wij nemen binnen een werkdag contact met u op. Voor dringende vragen kunt u ons ook telefonisch bereiken.</p>
+          <p class="text-ink-muted mb-3">Vertel ons wat u nodig heeft en wij nemen binnen een werkdag contact met u op. Voor dringende vragen kunt u ons ook telefonisch bereiken.</p>
+          <p class="inline-flex items-center gap-2 text-sm text-primary font-medium mb-8 bg-primary/5 px-3 py-1.5 rounded-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Wij reageren binnen een werkdag
+          </p>
 
           <form class="space-y-6" action="#" method="POST">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -100,13 +104,14 @@ import CTA from '../components/CTA.astro';
 
             <button
               type="submit"
-              class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+              class="group inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cta-phone-glow"
             >
               Verstuur Bericht
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </button>
+            <p class="text-xs text-ink-subtle mt-3">* Verplicht veld</p>
           </form>
         </div>
 

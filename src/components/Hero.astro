@@ -25,7 +25,7 @@ const {
 ---
 
 <section class:list={[
-  'relative overflow-hidden',
+  'relative overflow-hidden hero-grain',
   compact ? 'py-16 lg:py-20' : 'py-0',
 ]} style={compact ? "background: linear-gradient(135deg, #85a71e 0%, #6e8c14 40%, #2d3a1a 100%);" : ""}>
   {compact ? (
@@ -44,7 +44,7 @@ const {
     <!-- Full hero: asymmetric split-screen -->
     <div class="flex flex-col lg:flex-row min-h-[540px] lg:min-h-[600px]">
       <!-- Left: text content — 65% -->
-      <div class="lg:w-[65%] flex items-center" style="background: linear-gradient(135deg, #85a71e 0%, #6e8c14 40%, #2d3a1a 100%);">
+      <div class="lg:w-[65%] flex items-center hero-grain" style="background: linear-gradient(135deg, #85a71e 0%, #6e8c14 40%, #2d3a1a 100%);">
         <div class="max-w-3xl px-6 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-28">
           <h1 class="text-display font-extrabold text-white leading-tight">
             {title}
@@ -87,8 +87,9 @@ const {
           <span class="text-white font-extrabold" style="font-size: 12rem; font-family: var(--font-heading); line-height: 1;">WC</span>
         </div>
         <div class="relative text-center px-8 py-16 lg:py-0">
-          <span class="block text-white font-extrabold tracking-tight tabular-nums" style="font-size: clamp(5rem, 10vw, 8rem); font-family: var(--font-heading); line-height: 1;">{statValue}</span>
-          <span class="block text-white/70 text-sm font-medium uppercase tracking-widest mt-4">{statLabel}</span>
+          <span class="block text-white font-extrabold tracking-tight tabular-nums" style="font-size: clamp(5.5rem, 12vw, 9rem); font-family: var(--font-heading); line-height: 1;">{statValue}</span>
+          <div class="w-16 h-px bg-white/30 mx-auto mt-5 mb-4"></div>
+          <span class="block text-white/70 text-sm font-medium uppercase tracking-widest">{statLabel}</span>
         </div>
       </div>
     </div>

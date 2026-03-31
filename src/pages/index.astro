@@ -40,7 +40,7 @@ const services = [
   />
 
   <!-- Services Overview — Numbered vertical list -->
-  <section class="py-16 lg:py-24 bg-surface-bright">
+  <section class="py-16 lg:py-24 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-16">
         <span class="label">Onze Diensten</span>
@@ -56,12 +56,12 @@ const services = [
       <div class="space-y-0">
         {services.map((service, i) => (
           <div class:list={[
-            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
             i === services.length - 1 ? 'border-b border-border-default' : '',
           ]}>
             {/* Number — always left on desktop */}
             <div class="lg:col-span-1">
-              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{service.number}</span>
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{service.number}</span>
             </div>
             {/* Title */}
             <div class="lg:col-span-3 flex items-start">
@@ -92,7 +92,7 @@ const services = [
   <Stats />
 
   <!-- Why Choose Us -->
-  <section class="py-24 lg:py-36 bg-white">
+  <section class="py-24 lg:py-36 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>

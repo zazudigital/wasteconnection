@@ -72,7 +72,7 @@ const papierDetails = [
   />
 
   <!-- Afvalhout -->
-  <section id="afvalhout" class="py-20 lg:py-28 bg-surface-bright">
+  <section id="afvalhout" class="py-20 lg:py-28 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label">Dienst 01</span>
@@ -90,7 +90,7 @@ const papierDetails = [
             i < afvalhoutDetails.length - 1 ? 'lg:border-r border-border-default' : '',
             i < afvalhoutDetails.length - 1 ? 'border-b lg:border-b-0 border-border-default' : '',
           ]}>
-            <span class="text-2xl font-extrabold text-primary/15 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
+            <span class="text-2xl font-extrabold text-primary/25 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
             <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
             <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
           </div>
@@ -109,7 +109,7 @@ const papierDetails = [
   </div>
 
   <!-- Banden -->
-  <section id="banden" class="py-20 lg:py-28 bg-white">
+  <section id="banden" class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label">Dienst 02</span>
@@ -124,11 +124,11 @@ const papierDetails = [
       <div class="space-y-0">
         {bandenDetails.map((service, i) => (
           <div class:list={[
-            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
             i === bandenDetails.length - 1 ? 'border-b border-border-default' : '',
           ]}>
             <div class="lg:col-span-1">
-              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
             </div>
             <div class="lg:col-span-3 flex items-start">
               <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
@@ -143,7 +143,7 @@ const papierDetails = [
   </section>
 
   <!-- Bedrijfsafval -->
-  <section id="bedrijfsafval" class="py-20 lg:py-28 bg-surface-bright">
+  <section id="bedrijfsafval" class="py-20 lg:py-28 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label">Dienst 03</span>
@@ -161,7 +161,7 @@ const papierDetails = [
             i < bedrijfsafvalDetails.length - 1 ? 'lg:border-r border-border-default' : '',
             i < bedrijfsafvalDetails.length - 1 ? 'border-b lg:border-b-0 border-border-default' : '',
           ]}>
-            <span class="text-2xl font-extrabold text-primary/15 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
+            <span class="text-2xl font-extrabold text-primary/25 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
             <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
             <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
           </div>
@@ -171,7 +171,7 @@ const papierDetails = [
   </section>
 
   <!-- Papier -->
-  <section id="papier" class="py-20 lg:py-28 bg-white">
+  <section id="papier" class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label">Dienst 04</span>
@@ -185,11 +185,11 @@ const papierDetails = [
       <div class="space-y-0">
         {papierDetails.map((service, i) => (
           <div class:list={[
-            'grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 border-t border-border-default',
+            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
             i === papierDetails.length - 1 ? 'border-b border-border-default' : '',
           ]}>
             <div class="lg:col-span-1">
-              <span class="text-3xl lg:text-4xl font-extrabold text-primary/20 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
             </div>
             <div class="lg:col-span-3 flex items-start">
               <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
