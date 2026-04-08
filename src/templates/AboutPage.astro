@@ -37,8 +37,11 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
           ))}
         </div>
         <div class="relative">
-          <img src="/images/recycling.jpg" alt={t('overOns.mission.recyclingAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm mb-6" />
-          <div class="overflow-hidden border-l-4 border-primary" style="background: linear-gradient(135deg, #85a71e 0%, #2d3a1a 100%);">
+          <picture>
+            <source srcset="/images/recycling.webp" type="image/webp" />
+            <img src="/images/recycling.jpg" alt={t('overOns.mission.recyclingAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm mb-6" />
+          </picture>
+          <div class="overflow-hidden border-l-4 border-primary" style="background: linear-gradient(135deg, #618015 0%, #2d3a1a 100%);">
             <div class="p-10 lg:p-14">
               <blockquote class="text-white text-xl lg:text-2xl font-medium leading-relaxed mb-6" style="font-family: Georgia, 'Times New Roman', serif;">
                 <Fragment set:html={`&ldquo;${t('overOns.mission.quote')}&rdquo;`} />
@@ -153,7 +156,10 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
           </div>
         </div>
         <div class="relative">
-          <img src="/images/sustainability.jpg" alt={t('overOns.charity.sustainabilityAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover mb-6 rounded-sm" />
+          <picture>
+            <source srcset="/images/sustainability.webp" type="image/webp" />
+            <img src="/images/sustainability.jpg" alt={t('overOns.charity.sustainabilityAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover mb-6 rounded-sm" />
+          </picture>
           <div class="border border-border-default p-8 lg:p-12 text-center bg-surface-dim">
             <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-6">
               <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">

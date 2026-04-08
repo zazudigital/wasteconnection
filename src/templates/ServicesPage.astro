@@ -32,7 +32,10 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           {t('diensten.afvalhout.intro')}
         </p>
       </div>
-      <img src="/images/afvalhout.jpg" alt="Afvalhout verwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      <picture>
+        <source srcset="/images/afvalhout.webp" type="image/webp" />
+        <img src="/images/afvalhout.jpg" alt="Afvalhout verwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      </picture>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border-default">
         {afvalhoutDetails.map((service, i) => (
           <div class:list={[
@@ -51,7 +54,10 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
 
   <!-- Visual break -->
   <div class="relative w-full h-64 lg:h-80 overflow-hidden">
-    <img src="/images/hero-facility.jpg" alt="" aria-hidden="true" loading="lazy" width="1400" height="800" class="w-full h-full object-cover" />
+    <picture>
+      <source srcset="/images/hero-facility.webp" type="image/webp" />
+      <img src="/images/hero-facility.jpg" alt="" aria-hidden="true" loading="lazy" width="1400" height="800" class="w-full h-full object-cover" />
+    </picture>
     <div class="absolute inset-0 bg-primary/75"></div>
     <div class="absolute inset-0 flex items-center justify-center">
       <p class="text-white text-2xl lg:text-3xl font-extrabold tracking-tight text-center px-4" style="font-family: var(--font-heading);">{t('diensten.visualBreak')}</p>
@@ -70,7 +76,10 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           {t('diensten.banden.intro')}
         </p>
       </div>
-      <img src="/images/banden.jpg" alt="Bandenverwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      <picture>
+        <source srcset="/images/banden.webp" type="image/webp" />
+        <img src="/images/banden.jpg" alt="Bandenverwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      </picture>
       <!-- Numbered vertical list for banden -->
       <div class="space-y-0">
         {bandenDetails.map((service, i) => (
@@ -105,7 +114,10 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           {t('diensten.bedrijfsafval.intro')}
         </p>
       </div>
-      <img src="/images/hero-facility.jpg" alt="Bedrijfsafval verwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      <picture>
+        <source srcset="/images/hero-facility.webp" type="image/webp" />
+        <img src="/images/hero-facility.jpg" alt="Bedrijfsafval verwerking" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      </picture>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-border-default">
         {bedrijfsafvalDetails.map((service, i) => (
           <div class:list={[
@@ -134,7 +146,10 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           {t('diensten.papier.intro')}
         </p>
       </div>
-      <img src="/images/papier.jpg" alt="Papier recycling" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      <picture>
+        <source srcset="/images/papier.webp" type="image/webp" />
+        <img src="/images/papier.jpg" alt="Papier recycling" loading="lazy" width="1400" height="600" class="w-full h-56 lg:h-72 object-cover rounded-sm mb-10" />
+      </picture>
       <div class="space-y-0">
         {papierDetails.map((service, i) => (
           <div class:list={[

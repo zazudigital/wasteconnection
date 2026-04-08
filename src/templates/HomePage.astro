@@ -123,7 +123,10 @@ const reasons = t('home.whyUs.reasons') as Array<{ title: string; description: s
         <!-- Key figures — stacked editorial, no cards -->
         <div class="relative space-y-8 lg:pt-4">
           <!-- Collectief afbeelding -->
-          <img src="/images/hero-facility.jpg" alt={t('home.communityAlt')} loading="lazy" width="1400" height="800" class="rounded-sm w-full h-48 object-cover mb-8" />
+          <picture>
+            <source srcset="/images/hero-facility.webp" type="image/webp" />
+            <img src="/images/hero-facility.jpg" alt={t('home.communityAlt')} loading="lazy" width="1400" height="800" class="rounded-sm w-full h-48 object-cover mb-8" />
+          </picture>
           <div class="border-l-4 border-primary pl-6">
             <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('home.keyFigures.yearsValue')}</span>
             <p class="label mt-1">{t('home.keyFigures.yearsLabel')}</p>
