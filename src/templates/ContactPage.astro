@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import CTA from '../components/CTA.astro';
 import { useTranslations, localePath, type Locale } from '../i18n';
 
-const locale = Astro.params.locale as Locale | undefined;
+const locale = (Astro.currentLocale || 'nl') as Locale;
 const t = useTranslations(locale);
 const interestOptions = t('contact.form.interestOptions') as Array<{ value: string; label: string }>;
 ---
@@ -28,7 +28,15 @@ const interestOptions = t('contact.form.interestOptions') as Array<{ value: stri
             {t('contact.form.responseTime')}
           </p>
 
-          <form id="contact-form" class="space-y-6" novalidate>
+          <form id="contact-form" class="space-y-6" novalidate
+            data-msg-submitting={t('contact.form.submitting')}
+            data-msg-submit={t('contact.form.submitButton')}
+            data-msg-error-required={t('contact.form.errorRequired')}
+            data-msg-error-email={t('contact.form.errorEmail')}
+            data-msg-success={t('contact.form.success')}
+            data-msg-error-generic={t('contact.form.errorGeneric')}
+            data-msg-error-fallback={t('contact.form.errorFallback')}
+          >
             <!-- Honeypot — invisible to users, catches bots -->
             <div class="sr-only" aria-hidden="true">
               <label for="website">Website</label>
@@ -228,6 +236,17 @@ const interestOptions = t('contact.form.interestOptions') as Array<{ value: stri
     const btnSpinner = document.getElementById('submit-spinner')!;
     const timeField = form.querySelector('[name="_gotcha_time"]') as HTMLInputElement;
 
+    // Read translated messages from data attributes
+    const msg = {
+      submitting: form.dataset.msgSubmitting || 'Sending...',
+      submit: form.dataset.msgSubmit || 'Send Message',
+      errorRequired: form.dataset.msgErrorRequired || 'Please fill in all required fields.',
+      errorEmail: form.dataset.msgErrorEmail || 'Please enter a valid email address.',
+      success: form.dataset.msgSuccess || 'Thank you! We will contact you soon.',
+      errorGeneric: form.dataset.msgErrorGeneric || 'Something went wrong. Please try again.',
+      errorFallback: form.dataset.msgErrorFallback || 'Something went wrong. Please try again or call us.',
+    };
+
     // Set honeypot timestamp
     timeField.value = String(Date.now());
 
@@ -241,17 +260,17 @@ const interestOptions = t('contact.form.interestOptions') as Array<{ value: stri
       const message = (data.get('message') as string || '').trim();
 
       if (!firstName || !email || !message) {
-        showStatus('Vul alle verplichte velden in.', false);
+        showStatus(msg.errorRequired, false);
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showStatus('Voer een geldig e-mailadres in.', false);
+        showStatus(msg.errorEmail, false);
         return;
       }
 
       // Loading state
       btn.disabled = true;
-      btnText.textContent = 'Versturen...';
+      btnText.textContent = msg.submitting;
       btnArrow.classList.add('hidden');
       btnSpinner.classList.remove('hidden');
 
@@ -264,24 +283,24 @@ const interestOptions = t('contact.form.interestOptions') as Array<{ value: stri
         const result = await res.json();
 
         if (res.ok && result.success) {
-          showStatus('Bedankt! Wij nemen zo snel mogelijk contact met u op.', true);
+          showStatus(msg.success, true);
           form.reset();
           timeField.value = String(Date.now());
         } else {
-          showStatus(result.error || 'Er ging iets mis. Probeer het opnieuw.', false);
+          showStatus(result.error || msg.errorGeneric, false);
         }
       } catch {
-        showStatus('Er ging iets mis. Probeer het opnieuw of bel ons.', false);
+        showStatus(msg.errorFallback, false);
       } finally {
         btn.disabled = false;
-        btnText.textContent = 'Verstuur Bericht';
+        btnText.textContent = msg.submit;
         btnArrow.classList.remove('hidden');
         btnSpinner.classList.add('hidden');
       }
     });
 
-    function showStatus(msg: string, success: boolean) {
-      status.textContent = msg;
+    function showStatus(text: string, success: boolean) {
+      status.textContent = text;
       status.className = `mt-4 p-4 rounded-lg text-sm font-medium ${
         success
           ? 'bg-primary/10 text-primary border border-primary/20'

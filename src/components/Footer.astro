@@ -11,12 +11,12 @@ const quickLinks = [
   { href: localePath(locale, '/contact'), label: t('nav.contact') },
 ];
 
-const serviceLinks = [
-  { href: localePath(locale, '/diensten#afvalhout'), label: 'Afvalhout' },
-  { href: localePath(locale, '/diensten#banden'), label: 'Banden' },
-  { href: localePath(locale, '/diensten#bedrijfsafval'), label: 'Bedrijfsafval' },
-  { href: localePath(locale, '/diensten#papier'), label: 'Papier' },
-];
+const serviceItems = t('home.services.items') as Array<{ title: string }>;
+const serviceAnchors = ['afvalhout', 'banden', 'bedrijfsafval', 'papier'];
+const serviceLinks = serviceItems.map((item, i) => ({
+  href: localePath(locale, `/diensten#${serviceAnchors[i]}`),
+  label: item.title,
+}));
 
 const year = new Date().getFullYear();
 ---
