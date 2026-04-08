@@ -1,21 +1,25 @@
 ---
+import { useTranslations, localePath, type Locale } from '../i18n';
+
 interface Props {
   variant?: 'app' | 'contact';
 }
 
 const { variant = 'contact' } = Astro.props;
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
 ---
 
-<section class="py-20 lg:py-28 bg-surface-dim" data-animate>
+<section class="py-20 lg:py-28 bg-surface-dim">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="border-l-4 border-primary pl-8 lg:pl-12 max-w-3xl">
       <!-- Decorative line -->
       <div class="w-12 h-[2px] bg-primary/40 mb-6"></div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-ink mb-4">
-        Ontzorging en schaalvoordelen voor uw bedrijf
+        {t('cta.heading')}
       </h2>
       <p class="text-lg text-ink-muted mb-4">
-        Laat ons het complete traject uit handen nemen &mdash; van exportvergunningen en kwaliteitsborging tot administratie en financiele afwikkeling. Profiteer van de schaalvoordelen van ons collectief en houd u alleen bezig met uw kerntaken en klanten.
+        {t('cta.description')}
       </p>
       <!-- Prominent phone number -->
       <a href="tel:+31411611470" class="inline-flex items-center gap-2.5 text-primary text-2xl sm:text-3xl font-extrabold mb-8 hover:text-primary-dark transition-colors" style="font-family: var(--font-heading);">
@@ -26,10 +30,10 @@ const { variant = 'contact' } = Astro.props;
       </a>
       <div class="flex flex-col sm:flex-row items-start gap-4">
         <a
-          href="/contact"
+          href={localePath(locale, '/contact')}
           class="group inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
         >
-          Neem Contact Op
+          {t('cta.contactButton')}
           <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -41,10 +45,10 @@ const { variant = 'contact' } = Astro.props;
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
-          Bel Direct
+          {t('cta.callButton')}
         </a>
       </div>
-      <p class="text-sm text-ink-subtle mt-4 italic">Vrijblijvend advies &mdash; wij denken graag met u mee</p>
+      <p class="text-sm text-ink-subtle mt-4 italic">{t('cta.disclaimer')}</p>
     </div>
   </div>
 </section>

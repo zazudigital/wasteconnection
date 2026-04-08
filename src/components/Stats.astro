@@ -1,4 +1,8 @@
 ---
+import { useTranslations, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
 ---
 
 <section class="relative border-y border-border-default bg-surface-dim" data-animate>
@@ -7,23 +11,23 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
     <div class="flex flex-wrap items-center justify-between gap-y-6 gap-x-12 lg:gap-x-0">
       <div class="flex items-baseline gap-2 border-l-3 border-primary pl-4">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">40+</span>
-        <span class="label">Bedrijven</span>
+        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.companies')}</span>
+        <span class="label text-primary">{t('stats.companiesLabel')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
         <span class="text-ink-subtle font-bold text-lg" style="font-family: var(--font-heading);">&mdash;</span>
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">Sinds 2005</span>
+        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.since')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">NIWO</span>
-        <span class="label">Gecertificeerd</span>
+        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.niwo')}</span>
+        <span class="label text-primary">{t('stats.niwoLabel')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">4</span>
-        <span class="label">Afvalstromen</span>
+        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.streams')}</span>
+        <span class="label text-primary">{t('stats.streamsLabel')}</span>
       </div>
     </div>
   </div>

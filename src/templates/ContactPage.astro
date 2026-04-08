@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTA from '../components/CTA.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = Astro.params.locale as Locale | undefined;
+const t = useTranslations(locale);
+const interestOptions = t('contact.form.interestOptions') as Array<{ value: string; label: string }>;
+---
+
+<Layout title={t('contact.meta.title')} description={t('contact.meta.description')}>
+  <Hero
+    title={t('contact.hero.title')}
+    subtitle={t('contact.hero.subtitle')}
+    compact
+  />
+
+  <section class="py-20 lg:py-28 bg-surface-bright">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2 form-card bg-white border border-border-subtle rounded-sm p-8 lg:p-10">
+          <h2 class="text-2xl font-bold text-ink mb-2" style="font-family: var(--font-heading);">{t('contact.form.heading')}</h2>
+          <p class="text-ink-muted mb-3">{t('contact.form.description')}</p>
+          <p class="inline-flex items-center gap-2 text-sm text-primary font-medium mb-8 bg-primary/5 px-3 py-1.5 rounded-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            {t('contact.form.responseTime')}
+          </p>
+
+          <form id="contact-form" class="space-y-6" novalidate>
+            <!-- Honeypot — invisible to users, catches bots -->
+            <div class="sr-only" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <!-- Timestamp — reject submissions under 3 seconds -->
+            <input type="hidden" name="_gotcha_time" value="" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-ink mb-2">{t('contact.form.firstName')} *</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  class="w-full px-4 py-3 border border-border-default rounded-none text-ink placeholder-ink-subtle focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none bg-white"
+                  placeholder={t('contact.form.firstNamePlaceholder')}
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-ink mb-2">{t('contact.form.lastName')} *</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  class="w-full px-4 py-3 border border-border-default rounded-none text-ink placeholder-ink-subtle focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none bg-white"
+                  placeholder={t('contact.form.lastNamePlaceholder')}
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-ink mb-2">{t('contact.form.emailLabel')} *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-border-default rounded-none text-ink placeholder-ink-subtle focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none bg-white"
+                  placeholder={t('contact.form.emailPlaceholder')}
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-ink mb-2">{t('contact.form.phoneLabel')}</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-3 border border-border-default rounded-none text-ink placeholder-ink-subtle focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none bg-white"
+                  placeholder={t('contact.form.phonePlaceholder')}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="serviceType" class="block text-sm font-medium text-ink mb-2">{t('contact.form.interestLabel')}</label>
+              <select
+                id="serviceType"
+                name="serviceType"
+                class="w-full px-4 py-3 border border-border-default rounded-none text-ink focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none appearance-none bg-white"
+              >
+                <option value="">{t('contact.form.interestPlaceholder')}</option>
+                {interestOptions.map((option) => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-ink mb-2">{t('contact.form.messageLabel')} *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-border-default rounded-none text-ink placeholder-ink-subtle focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors outline-none resize-vertical bg-white"
+                placeholder={t('contact.form.messagePlaceholder')}
+              ></textarea>
+            </div>
+
+            <button
+              id="submit-btn"
+              type="submit"
+              class="group inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span id="submit-text">{t('contact.form.submitButton')}</span>
+              <svg id="submit-arrow" class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+              <svg id="submit-spinner" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+              </svg>
+            </button>
+            <p class="text-xs text-ink-subtle mt-3">{t('contact.form.required')}</p>
+            <!-- Status messages -->
+            <div id="form-status" role="status" aria-live="polite" class="hidden mt-4 p-4 rounded-lg text-sm font-medium"></div>
+          </form>
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-white border border-border-default p-8 sticky top-24">
+            <h3 class="text-lg font-bold text-ink mb-6" style="font-family: var(--font-heading);">{t('contact.sidebar.heading')}</h3>
+
+            <div class="space-y-6">
+              <!-- Phone -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-ink mb-1">{t('contact.sidebar.phone')}</div>
+                  <a href="tel:+31411611470" class="text-primary font-medium hover:text-primary-dark transition-colors">+31(0)411-611470</a>
+                  <p class="text-ink-subtle text-sm mt-1">{t('contact.sidebar.hours')}</p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-ink mb-1">{t('contact.sidebar.email')}</div>
+                  <a href="mailto:Info@WasteConnection.nl" class="text-primary font-medium hover:text-primary-dark transition-colors">Info@WasteConnection.nl</a>
+                  <p class="text-ink-subtle text-sm mt-1">{t('contact.sidebar.responseNote')}</p>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-ink mb-1">{t('contact.sidebar.address')}</div>
+                  <p class="text-ink-muted text-sm">Nieuwe Bredase Baan 30<br/>4825 BP Breda</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-border-default my-8"></div>
+
+            <!-- Collectief info -->
+            <div>
+              <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{t('contact.collectief.heading')}</h3>
+              <p class="text-ink-muted text-sm mb-4">
+                {t('contact.collectief.description')}
+              </p>
+              <a
+                href={localePath(locale, '/over-ons')}
+                class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:text-primary-dark transition-colors"
+              >
+                {t('contact.collectief.link')}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Placeholder -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="border-2 border-dashed border-border-default h-80 flex items-center justify-center bg-surface-dim">
+        <div class="text-center">
+          <svg class="w-16 h-16 text-ink-subtle/30 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <p class="text-ink-subtle font-medium text-lg">{t('contact.map.addressLine1')}</p>
+          <p class="text-ink-subtle/70 text-sm mt-1">{t('contact.map.addressLine2')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const status = document.getElementById('form-status')!;
+    const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const btnText = document.getElementById('submit-text')!;
+    const btnArrow = document.getElementById('submit-arrow')!;
+    const btnSpinner = document.getElementById('submit-spinner')!;
+    const timeField = form.querySelector('[name="_gotcha_time"]') as HTMLInputElement;
+
+    // Set honeypot timestamp
+    timeField.value = String(Date.now());
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.classList.add('hidden');
+
+      const data = new FormData(form);
+      const firstName = (data.get('firstName') as string || '').trim();
+      const email = (data.get('email') as string || '').trim();
+      const message = (data.get('message') as string || '').trim();
+
+      if (!firstName || !email || !message) {
+        showStatus('Vul alle verplichte velden in.', false);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Voer een geldig e-mailadres in.', false);
+        return;
+      }
+
+      // Loading state
+      btn.disabled = true;
+      btnText.textContent = 'Versturen...';
+      btnArrow.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(data)),
+        });
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          showStatus('Bedankt! Wij nemen zo snel mogelijk contact met u op.', true);
+          form.reset();
+          timeField.value = String(Date.now());
+        } else {
+          showStatus(result.error || 'Er ging iets mis. Probeer het opnieuw.', false);
+        }
+      } catch {
+        showStatus('Er ging iets mis. Probeer het opnieuw of bel ons.', false);
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = 'Verstuur Bericht';
+        btnArrow.classList.remove('hidden');
+        btnSpinner.classList.add('hidden');
+      }
+    });
+
+    function showStatus(msg: string, success: boolean) {
+      status.textContent = msg;
+      status.className = `mt-4 p-4 rounded-lg text-sm font-medium ${
+        success
+          ? 'bg-primary/10 text-primary border border-primary/20'
+          : 'bg-red-50 text-red-700 border border-red-200'
+      }`;
+    }
+  </script>
+</Layout>

@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
+const services = t('home.services.items') as Array<{ number: string; title: string; description: string }>;
+const reasons = t('home.whyUs.reasons') as Array<{ title: string; description: string }>;
+---
+
+<Layout
+  title={t('home.meta.title')}
+  description={t('home.meta.description')}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "WasteConnection",
+    "description": "Het afvalcollectief in Breda dat recyclingbedrijven volledig ontzorgt door collectieve inkoop en langetermijncontracten.",
+    "url": "https://wasteconnection.nl",
+    "telephone": "+31411611470",
+    "email": "Info@WasteConnection.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nieuwe Bredase Baan 30",
+      "addressLocality": "Breda",
+      "postalCode": "4825 BP",
+      "addressCountry": "NL"
+    }
+  }}
+>
+  <Hero
+    title={t('home.hero.title')}
+    subtitle={t('home.hero.subtitle')}
+    ctaText={t('home.hero.ctaText')}
+    ctaHref={localePath(locale, '/contact')}
+    secondaryCtaText={t('home.hero.secondaryCtaText')}
+    secondaryCtaHref={localePath(locale, '/diensten')}
+  />
+
+  <!-- Services Overview — Numbered vertical list -->
+  <section class="py-16 lg:py-24 bg-surface-bright" data-animate>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-16">
+        <span class="label text-primary">{t('home.services.label')}</span>
+        <h2 class="mt-3 text-h2 font-extrabold text-ink">
+          {t('home.services.heading')}
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted">
+          {t('home.services.description')}
+        </p>
+      </div>
+
+      <!-- Numbered service list -->
+      <div class="space-y-0">
+        {services.map((service, i) => (
+          <div class:list={[
+            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
+            i === services.length - 1 ? 'border-b border-border-default' : '',
+          ]}>
+            {/* Number — always left on desktop */}
+            <div class="lg:col-span-1">
+              <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{service.number}</span>
+            </div>
+            {/* Title */}
+            <div class="lg:col-span-3 flex items-start">
+              <h3 class="text-lg lg:text-xl font-bold text-ink" style="font-family: var(--font-heading);">{service.title}</h3>
+            </div>
+            {/* Description */}
+            <div class="lg:col-span-8">
+              <p class="text-ink-muted leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12">
+        <a
+          href={localePath(locale, '/diensten')}
+          class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors"
+        >
+          {t('home.services.viewAll')}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Stats />
+
+  <!-- Why Choose Us -->
+  <section class="py-24 lg:py-36 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="label text-primary">{t('home.whyUs.label')}</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
+            {t('home.whyUs.heading')}
+          </h2>
+          <p class="text-ink-muted text-lg leading-relaxed mb-8">
+            {t('home.whyUs.description')}
+          </p>
+          <ul class="space-y-5">
+            {reasons.map((reason) => (
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 border-2 border-primary flex items-center justify-center mt-0.5 shrink-0">
+                  <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div>
+                  <span class="font-bold text-ink">{reason.title}</span>
+                  <p class="text-ink-muted text-sm mt-1">{reason.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <!-- Key figures — stacked editorial, no cards -->
+        <div class="relative space-y-8 lg:pt-4">
+          <!-- Collectief afbeelding -->
+          <img src="/images/hero-facility.jpg" alt={t('home.communityAlt')} loading="lazy" width="1400" height="800" class="rounded-sm w-full h-48 object-cover mb-8" />
+          <div class="border-l-4 border-primary pl-6">
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('home.keyFigures.yearsValue')}</span>
+            <p class="label mt-1">{t('home.keyFigures.yearsLabel')}</p>
+          </div>
+          <div class="border-l-4 border-accent pl-6">
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('home.keyFigures.companiesValue')}</span>
+            <p class="label mt-1">{t('home.keyFigures.companiesLabel')}</p>
+          </div>
+          <div class="border-l-4 border-primary pl-6">
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('home.keyFigures.streamsValue')}</span>
+            <p class="label mt-1">{t('home.keyFigures.streamsLabel')}</p>
+          </div>
+          <div class="border-l-4 border-accent pl-6">
+            <span class="text-5xl lg:text-6xl font-extrabold text-primary tracking-tight tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('home.keyFigures.niwoValue')}</span>
+            <p class="label mt-1">{t('home.keyFigures.niwoLabel')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <CTA variant="contact" />
+</Layout>

@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import CTA from '../components/CTA.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
+const values = t('overOns.values.items') as Array<{ title: string; description: string }>;
+const timeline = t('overOns.timeline.items') as Array<{ year: string; event: string }>;
+const missionParagraphs = t('overOns.mission.paragraphs') as string[];
+const charityItems = t('overOns.charity.items') as Array<{ title: string; description: string }>;
+---
+
+<Layout title={t('overOns.meta.title')} description={t('overOns.meta.description')}>
+  <Hero
+    title={t('overOns.hero.title')}
+    subtitle={t('overOns.hero.subtitle')}
+    compact
+  />
+
+  <!-- Mission Section -->
+  <section class="py-20 lg:py-28 bg-surface-bright" data-animate>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="label text-primary">{t('overOns.mission.label')}</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
+            {t('overOns.mission.heading')}
+          </h2>
+          {missionParagraphs.map((paragraph, i) => (
+            <p class:list={['text-ink-muted text-lg leading-relaxed', i < missionParagraphs.length - 1 ? 'mb-6' : '']}>
+              <Fragment set:html={paragraph} />
+            </p>
+          ))}
+        </div>
+        <div class="relative">
+          <img src="/images/recycling.jpg" alt={t('overOns.mission.recyclingAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm mb-6" />
+          <div class="overflow-hidden border-l-4 border-primary" style="background: linear-gradient(135deg, #85a71e 0%, #2d3a1a 100%);">
+            <div class="p-10 lg:p-14">
+              <blockquote class="text-white text-xl lg:text-2xl font-medium leading-relaxed mb-6" style="font-family: Georgia, 'Times New Roman', serif;">
+                <Fragment set:html={`&ldquo;${t('overOns.mission.quote')}&rdquo;`} />
+              </blockquote>
+              <div class="flex items-center gap-3">
+                <div class="w-1 h-12 bg-accent"></div>
+                <div>
+                  <div class="text-white font-semibold">{t('overOns.mission.quoteAuthor')}</div>
+                  <div class="text-white/70 text-sm">{t('overOns.mission.quoteRole')}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="label text-primary">{t('overOns.values.label')}</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          {t('overOns.values.heading')}
+        </h2>
+        <p class="mt-4 text-lg text-ink-muted max-w-2xl mx-auto">
+          <Fragment set:html={t('overOns.values.description')} />
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-border-default">
+        {values.map((value, i) => (
+          <div class:list={[
+            'p-8 lg:p-10',
+            i < 2 ? 'border-b border-border-default' : '',
+            i % 2 === 0 ? 'md:border-r border-border-default' : '',
+          ]}>
+            <span class="text-3xl font-extrabold text-primary/25 block mb-3" style="font-family: var(--font-heading);">0{i + 1}</span>
+            <h3 class="text-xl font-bold text-ink mb-3" style="font-family: var(--font-heading);">
+              <Fragment set:html={value.title} />
+            </h3>
+            <p class="text-ink-muted leading-relaxed">
+              <Fragment set:html={value.description} />
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Stats />
+
+  <!-- Timeline -->
+  <section class="py-20 lg:py-28 bg-surface-bright">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="label text-primary">{t('overOns.timeline.label')}</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink" style="font-family: var(--font-heading);">
+          {t('overOns.timeline.heading')}
+        </h2>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-4 top-0 bottom-0 w-px bg-border-default"></div>
+
+          <div class="space-y-10">
+            {timeline.map((item) => (
+              <div class="relative flex items-start gap-6 pl-0">
+                <div class="relative z-10 w-8 h-8 bg-primary flex items-center justify-center shrink-0">
+                  <div class="w-2 h-2 bg-white"></div>
+                </div>
+                <div class="pt-0.5">
+                  <div class="text-primary font-bold text-lg mb-1" style="font-family: var(--font-heading);">{item.year}</div>
+                  <p class="text-ink-muted leading-relaxed">{item.event}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charity & Sustainability -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="label text-primary">{t('overOns.charity.label')}</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
+            <Fragment set:html={t('overOns.charity.heading')} />
+          </h2>
+          <p class="text-ink-muted text-lg leading-relaxed mb-8">
+            <Fragment set:html={t('overOns.charity.description')} />
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-border-default">
+            {charityItems.map((item, i) => (
+              <div class:list={[
+                'p-6',
+                i < 2 ? 'border-b border-border-default' : '',
+                i % 2 === 0 ? 'border-r border-border-default' : '',
+              ]}>
+                <div class="text-lg font-bold text-primary mb-1" style="font-family: var(--font-heading);">
+                  <Fragment set:html={item.title} />
+                </div>
+                <p class="text-ink-muted text-sm">
+                  <Fragment set:html={item.description} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="relative">
+          <img src="/images/sustainability.jpg" alt={t('overOns.charity.sustainabilityAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover mb-6 rounded-sm" />
+          <div class="border border-border-default p-8 lg:p-12 text-center bg-surface-dim">
+            <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-ink mb-3" style="font-family: var(--font-heading);">{t('overOns.charity.knowledgeHeading')}</h3>
+            <p class="text-ink-muted leading-relaxed max-w-md mx-auto">
+              <Fragment set:html={t('overOns.charity.knowledgeDescription')} />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA variant="contact" />
+</Layout>

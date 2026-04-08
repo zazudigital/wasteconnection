@@ -1,29 +1,18 @@
 ---
-const approaches = [
-  {
-    name: 'Het Uitruil-principe',
-    role: 'Kern van ons collectief',
-    quote: 'Door slim vraag en aanbod te matchen tussen onze 40+ deelnemers, optimaliseren wij de logistiek en drukken we de kosten. Dit uitruil-principe zorgt ervoor dat elke deelnemer profiteert van schaalvoordelen die individueel onbereikbaar zouden zijn. Zo creeren wij samen meer waarde uit elke afvalstroom.',
-  },
-  {
-    name: 'Transparantie',
-    role: 'Onze belofte aan deelnemers',
-    quote: 'Wij geloven dat transparantie in afvalverwerking fundamenteel is. Elke deelnemer weet precies waar zijn afval naartoe gaat, hoe het verwerkt wordt en welke tarieven daarbij horen. Geen verborgen kosten, geen onduidelijkheid.',
-  },
-  {
-    name: 'Langetermijncontracten',
-    role: 'Stabiliteit voor deelnemers',
-    quote: 'Met contracten van 1 tot 17 jaar bij grote energieproducenten zoals Essent en RWE bieden wij onze deelnemers prijsstabiliteit en zekerheid. Zo worden bedrijven ontzorgd en kunnen zij zich richten op hun eigen kernactiviteiten.',
-  },
-];
+import { useTranslations, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
+const approaches = t('testimonials.approaches') as Array<{ name: string; role: string; quote: string }>;
 ---
 
-<section class="py-20 lg:py-28 bg-surface-bright" data-animate>
+<section class="py-20 lg:py-28 bg-surface-bright">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-16">
-      <span class="label">Onze Aanpak</span>
+      <span class="label">{t('testimonials.label')}</span>
       <h2 class="mt-3 text-h2 font-extrabold text-ink">
-        Samen sterker door collectieve kracht
+        {t('testimonials.heading')}
       </h2>
     </div>
 
@@ -47,18 +36,18 @@ const approaches = [
 
     <!-- Two smaller quotes side by side -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {[approaches[1], approaches[2]].map((t) => (
+      {[approaches[1], approaches[2]].map((item) => (
         <div class="approach-card border border-border-default p-6 lg:p-8 cursor-default">
           <blockquote class="text-ink-muted text-sm leading-relaxed mb-5" style="font-family: Georgia, 'Times New Roman', serif;">
-            &ldquo;{t.quote}&rdquo;
+            &ldquo;{item.quote}&rdquo;
           </blockquote>
           <div class="flex items-center gap-3 border-t border-border-subtle pt-4">
             <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
               <span class="text-primary font-bold text-xs" style="font-family: var(--font-heading);">WC</span>
             </div>
             <div>
-              <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{t.name}</div>
-              <div class="text-ink-subtle text-xs">{t.role}</div>
+              <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{item.name}</div>
+              <div class="text-ink-subtle text-xs">{item.role}</div>
             </div>
           </div>
         </div>

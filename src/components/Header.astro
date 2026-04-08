@@ -1,19 +1,25 @@
 ---
+import { useTranslations, localePath, locales, localeMap, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/diensten', label: 'Diensten' },
-  { href: '/over-ons', label: 'Over Ons' },
-  { href: '/contact', label: 'Contact' },
+  { href: localePath(locale, '/'), label: t('nav.home') },
+  { href: localePath(locale, '/diensten'), label: t('nav.diensten') },
+  { href: localePath(locale, '/over-ons'), label: t('nav.overOns') },
+  { href: localePath(locale, '/contact'), label: t('nav.contact') },
 ];
 const currentPath = Astro.url.pathname;
+const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
 ---
 
 <!-- Announcement bar -->
 <div class="bg-primary text-white text-center py-1.5 text-xs sm:text-sm font-medium tracking-wide animate-slide-down" style="font-family: var(--font-body);">
-  <a href="/contact" class="hover:text-white/90 transition-colors inline-flex items-center gap-1.5">
-    <span>Collectief van 40+ bedrijven</span>
+  <a href={localePath(locale, '/contact')} class="hover:text-white/90 transition-colors inline-flex items-center gap-1.5">
+    <span>{t('header.announcement')}</span>
     <span class="hidden sm:inline">&mdash;</span>
-    <span class="hidden sm:inline">Profiteer van schaalvoordelen</span>
+    <span class="hidden sm:inline">{t('header.announcementSub')}</span>
     <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
   </a>
 </div>
@@ -22,13 +28,13 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 shrink-0 group logo-hover">
+      <a href={localePath(locale, '/')} class="flex items-center gap-2.5 shrink-0 group logo-hover">
         <div class="w-10 h-10 bg-primary flex items-center justify-center logo-icon transition-all duration-250">
           <span class="text-white font-extrabold text-sm" style="font-family: var(--font-heading);">WC</span>
         </div>
         <div class="leading-none">
           <span class="text-xl font-bold text-primary block" style="font-family: var(--font-heading);">WasteConnection<sup class="text-[0.5rem] text-ink-subtle font-medium relative -top-2 ml-0.5">&reg;</sup></span>
-          <span class="text-[0.625rem] text-ink-subtle font-medium uppercase tracking-[0.12em] mt-0.5 block" style="font-family: var(--font-heading);">Afvalcollectief</span>
+          <span class="text-[0.625rem] text-ink-subtle font-medium uppercase tracking-[0.12em] mt-0.5 block" style="font-family: var(--font-heading);">{t('header.tagline')}</span>
         </div>
       </a>
 
@@ -47,6 +53,21 @@ const currentPath = Astro.url.pathname;
             {link.label}
           </a>
         ))}
+        <div class="flex items-center ml-4 bg-surface-dim rounded-md p-0.5" role="group" aria-label="Language">
+          {locales.map(l => (
+            <a
+              href={localePath(l, pagePath)}
+              class:list={[
+                'px-2.5 py-1 text-xs font-bold tracking-wide transition-all rounded-[5px]',
+                l === locale
+                  ? 'bg-white text-primary shadow-sm'
+                  : 'text-ink-subtle hover:text-ink',
+              ]}
+            >
+              {localeMap[l].label}
+            </a>
+          ))}
+        </div>
         <a
           href="tel:+31411611470"
           class="ml-4 inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-colors"
@@ -78,6 +99,23 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="lg:hidden mobile-menu border-t border-border-default">
+    <div class="flex items-center px-4 py-3 border-b border-border-default mb-1">
+      <div class="flex items-center bg-surface-dim rounded-md p-0.5">
+        {locales.map(l => (
+          <a
+            href={localePath(l, pagePath)}
+            class:list={[
+              'px-4 py-2 text-sm font-bold tracking-wide transition-all rounded-[5px]',
+              l === locale
+                ? 'bg-white text-primary shadow-sm'
+                : 'text-ink-subtle hover:text-ink',
+            ]}
+          >
+            {localeMap[l].label}
+          </a>
+        ))}
+      </div>
+    </div>
     <nav class="max-w-7xl mx-auto px-4 py-4 space-y-1" aria-label="Mobile navigation">
       {navLinks.map((link) => (
         <a
