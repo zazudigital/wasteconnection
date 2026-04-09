@@ -45,7 +45,7 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           ]}>
             <span class="text-2xl font-extrabold text-primary/25 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
             <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
+            <p class="text-ink-muted text-base leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
@@ -65,7 +65,7 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
   </div>
 
   <!-- Banden -->
-  <section id="banden" class="py-20 lg:py-28 bg-white">
+  <section id="banden" class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label text-primary">{t('diensten.banden.label')}</span>
@@ -84,9 +84,9 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
       <div class="space-y-0">
         {bandenDetails.map((service, i) => (
           <div class:list={[
-            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
+            'service-row diagonal-reveal grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
             i === bandenDetails.length - 1 ? 'border-b border-border-default' : '',
-          ]}>
+          ]} data-animate>
             <div class="lg:col-span-1">
               <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
             </div>
@@ -103,7 +103,7 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
   </section>
 
   <!-- Bedrijfsafval -->
-  <section id="bedrijfsafval" class="py-20 lg:py-28 bg-surface-bright">
+  <section id="bedrijfsafval" class="py-20 lg:py-28 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label text-primary">{t('diensten.bedrijfsafval.label')}</span>
@@ -127,7 +127,7 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
           ]}>
             <span class="text-2xl font-extrabold text-primary/25 block mb-2" style="font-family: var(--font-heading);">0{i + 1}</span>
             <h3 class="text-lg font-bold text-ink mb-3" style="font-family: var(--font-heading);">{service.title}</h3>
-            <p class="text-ink-muted text-sm leading-relaxed">{service.description}</p>
+            <p class="text-ink-muted text-base leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
@@ -135,7 +135,7 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
   </section>
 
   <!-- Papier -->
-  <section id="papier" class="py-20 lg:py-28 bg-white">
+  <section id="papier" class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14">
         <span class="label text-primary">{t('diensten.papier.label')}</span>
@@ -153,9 +153,9 @@ const papierDetails = t('diensten.papier.details') as Array<{ title: string; des
       <div class="space-y-0">
         {papierDetails.map((service, i) => (
           <div class:list={[
-            'service-row grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
+            'service-row diagonal-reveal grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 lg:py-10 px-4 -mx-4 rounded-sm border-t border-border-default',
             i === papierDetails.length - 1 ? 'border-b border-border-default' : '',
-          ]}>
+          ]} data-animate>
             <div class="lg:col-span-1">
               <span class="text-3xl lg:text-4xl font-extrabold text-primary/30 tabular-nums" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">0{i + 1}</span>
             </div>

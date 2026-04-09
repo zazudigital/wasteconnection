@@ -10,12 +10,12 @@ const locale = (Astro.currentLocale || 'nl') as Locale;
 const t = useTranslations(locale);
 ---
 
-<section class="py-20 lg:py-28 bg-surface-dim">
+<section class="relative py-20 lg:py-28 bg-surface-dim hero-grain overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="border-l-4 border-primary pl-8 lg:pl-12 max-w-3xl">
+    <div class="border-l-4 border-primary pl-8 lg:pl-12 max-w-3xl" data-animate>
       <!-- Decorative line -->
       <div class="w-12 h-[2px] bg-primary/40 mb-6"></div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-ink mb-4">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink mb-6" style="font-family: var(--font-heading);">
         {t('cta.heading')}
       </h2>
       <p class="text-lg text-ink-muted mb-4">
@@ -48,7 +48,7 @@ const t = useTranslations(locale);
           {t('cta.callButton')}
         </a>
       </div>
-      <p class="text-sm text-ink-subtle mt-4 italic">{t('cta.disclaimer')}</p>
+      <p class="text-[0.9375rem] text-ink-subtle mt-4 italic">{t('cta.disclaimer')}</p>
     </div>
   </div>
 </section>

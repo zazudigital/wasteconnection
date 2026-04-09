@@ -14,27 +14,19 @@ const currentPath = Astro.url.pathname;
 const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
 ---
 
-<!-- Announcement bar -->
-<div class="bg-primary text-white text-center py-1.5 text-xs sm:text-sm font-medium tracking-wide animate-slide-down" style="font-family: var(--font-body);">
-  <a href={localePath(locale, '/contact')} class="hover:text-white/90 transition-colors inline-flex items-center gap-1.5">
-    <span>{t('header.announcement')}</span>
-    <span class="hidden sm:inline">&mdash;</span>
-    <span class="hidden sm:inline">{t('header.announcementSub')}</span>
-    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-  </a>
-</div>
-
-<header class="bg-white border-b border-border-default sticky top-0 z-50 border-t-2 border-t-primary" id="site-header">
+<header class="bg-white border-b border-border-default sticky top-0 z-50 relative" id="site-header">
+  <!-- Asymmetric green accent bar — left-aligned industrial detail -->
+  <div class="absolute top-0 left-0 w-[120px] h-1 bg-primary z-10" aria-hidden="true"></div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href={localePath(locale, '/')} class="flex items-center gap-2.5 shrink-0 group logo-hover">
-        <div class="w-10 h-10 bg-primary flex items-center justify-center logo-icon transition-all duration-250">
+        <div class="w-10 h-10 bg-primary flex items-center justify-center logo-icon transition-all duration-250" style="transform: rotate(2deg);">
           <span class="text-white font-extrabold text-sm" style="font-family: var(--font-heading);">WC</span>
         </div>
         <div class="leading-none">
           <span class="text-xl font-bold text-primary block" style="font-family: var(--font-heading);">WasteConnection<sup class="text-[0.5rem] text-ink-subtle font-medium relative -top-2 ml-0.5">&reg;</sup></span>
-          <span class="text-[0.625rem] text-ink-subtle font-medium uppercase tracking-[0.12em] mt-0.5 block" style="font-family: var(--font-heading);">{t('header.tagline')}</span>
+          <span class="text-[0.6875rem] text-ink-subtle font-medium uppercase tracking-[0.12em] mt-0.5 block" style="font-family: var(--font-heading);">{t('header.tagline')}</span>
         </div>
       </a>
 
@@ -44,7 +36,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
           <a
             href={link.href}
             class:list={[
-              'nav-link px-4 py-2 text-sm font-medium transition-colors',
+              'nav-link px-4 py-2 text-[0.9375rem] font-medium transition-colors',
               currentPath === link.href
                 ? 'text-primary nav-link--active'
                 : 'text-ink-muted hover:text-primary',
@@ -57,8 +49,10 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
           {locales.map(l => (
             <a
               href={localePath(l, pagePath)}
+              aria-label={localeMap[l].label}
+              aria-current={l === locale ? 'true' : undefined}
               class:list={[
-                'px-2.5 py-1 text-xs font-bold tracking-wide transition-all rounded-[5px]',
+                'px-3 py-1.5 text-[0.8125rem] font-bold tracking-wide transition-all rounded-[5px]',
                 l === locale
                   ? 'bg-white text-primary shadow-sm'
                   : 'text-ink-subtle hover:text-ink',
@@ -70,7 +64,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
         </div>
         <a
           href="tel:+31411611470"
-          class="ml-4 inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-colors"
+          class="ml-4 inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-[0.9375rem] font-semibold hover:bg-primary-dark transition-colors"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -82,7 +76,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="lg:hidden p-2 text-ink-muted hover:text-primary transition-colors"
+        class="lg:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-ink-muted hover:text-primary transition-colors"
         aria-label="Toggle navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -104,8 +98,10 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
         {locales.map(l => (
           <a
             href={localePath(l, pagePath)}
+            aria-label={localeMap[l].label}
+            aria-current={l === locale ? 'true' : undefined}
             class:list={[
-              'px-4 py-2 text-sm font-bold tracking-wide transition-all rounded-[5px]',
+              'px-4 py-2.5 text-[0.9375rem] font-bold tracking-wide transition-all rounded-[5px] min-h-[44px] inline-flex items-center justify-center',
               l === locale
                 ? 'bg-white text-primary shadow-sm'
                 : 'text-ink-subtle hover:text-ink',

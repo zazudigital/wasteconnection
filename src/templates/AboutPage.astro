@@ -43,14 +43,14 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
           </picture>
           <div class="overflow-hidden border-l-4 border-primary" style="background: linear-gradient(135deg, #618015 0%, #2d3a1a 100%);">
             <div class="p-10 lg:p-14">
-              <blockquote class="text-white text-xl lg:text-2xl font-medium leading-relaxed mb-6" style="font-family: Georgia, 'Times New Roman', serif;">
+              <blockquote class="text-white text-xl lg:text-2xl font-semibold leading-relaxed mb-6" style="font-family: Georgia, 'Times New Roman', serif;">
                 <Fragment set:html={`&ldquo;${t('overOns.mission.quote')}&rdquo;`} />
               </blockquote>
               <div class="flex items-center gap-3">
                 <div class="w-1 h-12 bg-accent"></div>
                 <div>
                   <div class="text-white font-semibold">{t('overOns.mission.quoteAuthor')}</div>
-                  <div class="text-white/70 text-sm">{t('overOns.mission.quoteRole')}</div>
+                  <div class="text-white/70 text-[0.9375rem]">{t('overOns.mission.quoteRole')}</div>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
   </section>
 
   <!-- Values -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
         <span class="label text-primary">{t('overOns.values.label')}</span>
@@ -95,7 +95,7 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
   <Stats />
 
   <!-- Timeline -->
-  <section class="py-20 lg:py-28 bg-surface-bright">
+  <section class="py-20 lg:py-28 bg-surface-bright" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
         <span class="label text-primary">{t('overOns.timeline.label')}</span>
@@ -127,7 +127,7 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
   </section>
 
   <!-- Charity & Sustainability -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
@@ -148,7 +148,7 @@ const charityItems = t('overOns.charity.items') as Array<{ title: string; descri
                 <div class="text-lg font-bold text-primary mb-1" style="font-family: var(--font-heading);">
                   <Fragment set:html={item.title} />
                 </div>
-                <p class="text-ink-muted text-sm">
+                <p class="text-ink-muted text-base">
                   <Fragment set:html={item.description} />
                 </p>
               </div>

@@ -78,11 +78,11 @@ const {
         </div>
       </div>
 
-      <!-- Right: bold green block with stat — 35% -->
-      <div class="lg:w-[35%] relative flex items-center justify-center overflow-hidden">
+      <!-- Right: bold green block with stat — 35%, diagonal clip -->
+      <div class="lg:w-[35%] relative flex items-center justify-center overflow-hidden" style="clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);">
         <picture>
           <source srcset="/images/hero-facility.webp" type="image/webp" />
-          <img src="/images/hero-facility.jpg" alt="" aria-hidden="true" width="1400" height="800" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/hero-facility.jpg" alt="" aria-hidden="true" width="1400" height="800" fetchpriority="high" loading="eager" class="absolute inset-0 w-full h-full object-cover" />
         </picture>
         <div class="absolute inset-0 bg-primary/85"></div>
         <!-- Large faded WC monogram in background -->
@@ -90,9 +90,9 @@ const {
           <span class="text-white font-extrabold" style="font-size: 12rem; font-family: var(--font-heading); line-height: 1;">WC</span>
         </div>
         <div class="relative text-center px-8 py-16 lg:py-0">
-          <span class="block text-white font-extrabold tracking-tight tabular-nums" style="font-size: clamp(5.5rem, 12vw, 9rem); font-family: var(--font-heading); line-height: 1;">{statValue}</span>
+          <span class="block text-white font-extrabold tracking-tight tabular-nums stat-pulse" style="font-size: clamp(5.5rem, 12vw, 9rem); font-family: var(--font-heading); line-height: 1;">{statValue}</span>
           <div class="w-16 h-px bg-white/30 mx-auto mt-5 mb-4"></div>
-          <span class="block text-white/70 text-sm font-medium uppercase tracking-widest">{statLabel}</span>
+          <span class="block text-white/70 text-[0.9375rem] font-medium uppercase tracking-widest">{statLabel}</span>
         </div>
       </div>
     </div>

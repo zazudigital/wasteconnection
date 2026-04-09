@@ -9,24 +9,24 @@ const t = useTranslations(locale);
   <!-- Thin green line above -->
   <div class="absolute top-0 left-0 right-0 h-[2px] bg-primary"></div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
-    <div class="flex flex-wrap items-center justify-between gap-y-6 gap-x-12 lg:gap-x-0">
+    <div class="flex flex-wrap items-center justify-between gap-y-6 gap-x-12 lg:gap-x-0" data-animate-stagger>
       <div class="flex items-baseline gap-2 border-l-3 border-primary pl-4">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.companies')}</span>
+        <span class="text-5xl lg:text-[4.5rem] font-extrabold text-primary tracking-tight stat-pulse" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.companies')}</span>
         <span class="label text-primary">{t('stats.companiesLabel')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
         <span class="text-ink-subtle font-bold text-lg" style="font-family: var(--font-heading);">&mdash;</span>
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.since')}</span>
+        <span class="text-5xl lg:text-[4.5rem] font-extrabold text-primary tracking-tight stat-pulse" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.since')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.niwo')}</span>
+        <span class="text-5xl lg:text-[4.5rem] font-extrabold text-primary tracking-tight stat-pulse" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.niwo')}</span>
         <span class="label text-primary">{t('stats.niwoLabel')}</span>
       </div>
       <div class="hidden lg:block stats-divider"></div>
       <div class="flex items-baseline gap-2">
-        <span class="text-4xl lg:text-[3.75rem] font-extrabold text-primary tracking-tight" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.streams')}</span>
+        <span class="text-5xl lg:text-[4.5rem] font-extrabold text-primary tracking-tight stat-pulse" style="font-family: var(--font-heading); font-variant-numeric: tabular-nums;">{t('stats.streams')}</span>
         <span class="label text-primary">{t('stats.streamsLabel')}</span>
       </div>
     </div>

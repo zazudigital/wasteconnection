@@ -17,10 +17,10 @@ const approaches = t('testimonials.approaches') as Array<{ name: string; role: s
     </div>
 
     <!-- Featured approach — dramatic, full-width -->
-    <div class="relative border-l-4 border-primary pl-8 lg:pl-12 mb-16">
+    <div class="relative border-l-4 border-primary pl-8 lg:pl-12 mb-16" data-animate>
       <!-- Massive quotation mark -->
       <div class="absolute -top-8 -left-2 text-primary/12 select-none pointer-events-none" aria-hidden="true" style="font-size: 14rem; font-family: Georgia, 'Times New Roman', serif; line-height: 1;">&ldquo;</div>
-      <blockquote class="relative text-xl sm:text-2xl lg:text-3xl text-ink leading-snug font-medium max-w-4xl" style="font-family: Georgia, 'Times New Roman', serif;">
+      <blockquote class="relative text-xl sm:text-2xl lg:text-3xl text-ink leading-snug font-semibold max-w-4xl" style="font-family: Georgia, 'Times New Roman', serif;">
         {approaches[0].quote}
       </blockquote>
       <div class="mt-8 flex items-center gap-4">
@@ -28,17 +28,19 @@ const approaches = t('testimonials.approaches') as Array<{ name: string; role: s
           <span class="text-white font-bold text-sm" style="font-family: var(--font-heading);">WC</span>
         </div>
         <div>
-          <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{approaches[0].name}</div>
-          <div class="text-ink-subtle text-xs">{approaches[0].role}</div>
+          <div class="font-bold text-ink text-[0.9375rem]" style="font-family: var(--font-heading);">{approaches[0].name}</div>
+          <div class="text-ink-subtle text-[0.8125rem]">{approaches[0].role}</div>
         </div>
       </div>
     </div>
 
     <!-- Two smaller quotes side by side -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {[approaches[1], approaches[2]].map((item) => (
-        <div class="approach-card border border-border-default p-6 lg:p-8 cursor-default">
-          <blockquote class="text-ink-muted text-sm leading-relaxed mb-5" style="font-family: Georgia, 'Times New Roman', serif;">
+      {[approaches[1], approaches[2]].map((item, i) => (
+        <div class="approach-card border border-border-default p-6 lg:p-8 cursor-default relative" data-animate style={`--stagger-delay: ${i * 150}ms`}>
+          <!-- Decorative quote mark -->
+          <span class="absolute -top-3 left-5 text-primary/15 select-none pointer-events-none text-6xl font-bold" aria-hidden="true" style="font-family: Georgia, 'Times New Roman', serif; line-height: 1;">&ldquo;</span>
+          <blockquote class="text-ink-muted text-base leading-relaxed mb-5" style="font-family: Georgia, 'Times New Roman', serif;">
             &ldquo;{item.quote}&rdquo;
           </blockquote>
           <div class="flex items-center gap-3 border-t border-border-subtle pt-4">
@@ -46,8 +48,8 @@ const approaches = t('testimonials.approaches') as Array<{ name: string; role: s
               <span class="text-primary font-bold text-xs" style="font-family: var(--font-heading);">WC</span>
             </div>
             <div>
-              <div class="font-bold text-ink text-sm" style="font-family: var(--font-heading);">{item.name}</div>
-              <div class="text-ink-subtle text-xs">{item.role}</div>
+              <div class="font-bold text-ink text-[0.9375rem]" style="font-family: var(--font-heading);">{item.name}</div>
+              <div class="text-ink-subtle text-[0.8125rem]">{item.role}</div>
             </div>
           </div>
         </div>
